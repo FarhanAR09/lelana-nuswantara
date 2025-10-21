@@ -853,7 +853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   states: []
   activeState: {fileID: 1607026852}
-  cc: {fileID: 0}
+  cc: {fileID: 1607026853}
 --- !u!58 &1607026855
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -929,10 +929,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitions:
-  - name: 
-    targetState: {fileID: 1607026852}
-    conditions:
-    - {fileID: 11400000, guid: d459f0b903afd5f4e94b05fb3ca9fd56, type: 2}
   - name: 
     targetState: {fileID: 1607026852}
     conditions:
