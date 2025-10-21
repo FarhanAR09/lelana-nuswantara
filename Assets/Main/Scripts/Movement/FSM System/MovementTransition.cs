@@ -12,10 +12,10 @@ public class MovementTransition
     {
         foreach (var condition in conditions)
         {
-            if (!condition.IsMet(brain))
-                return false;
+            if (condition.IsMet(brain))
+                return true;
         }
-        return true;
+        return false;
     }
 
     public void InvokeConditionsOnEnter()

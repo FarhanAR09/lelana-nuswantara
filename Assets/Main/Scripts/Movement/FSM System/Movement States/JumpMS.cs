@@ -1,23 +1,34 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class JumpMS : MovementState
 {
     public float speed;
-    private Rigidbody2D rb;
+    public float gravityScale = -9.81f;
+
     private int jumpBufferFrames = 3;
     private int framesSinceJump;
+    private float initialGravity;
 
     protected override void Awake()
     {
         base.Awake();
-        rb = GetComponent<Rigidbody2D>();
     }
 
     protected override void OnEnable()
     {
-        rb.velocity = new Vector2(rb.velocity.x, 10f);
+        base.OnEnable();
+
+        cc.rb.velocity = new Vector2(cc.rb.velocity.x, 10f);
+        initialGravity = cc.rb.gravityScale;
+        cc.rb.gravityScale = gravityScale;
         framesSinceJump = 0;
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+
+        cc.rb.gravityScale = initialGravity;
     }
 
     private void FixedUpdate()
@@ -35,7 +46,7 @@ public class JumpMS : MovementState
         }
         else
         {
-            move.y = rb.velocity.y;
+            move.y = cc.rb.velocity.y;
         }
 
         cc.SetVelocity(move);

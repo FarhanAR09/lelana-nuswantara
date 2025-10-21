@@ -10,7 +10,8 @@ public class CharacterController2D : MonoBehaviour
     [HideInInspector] public bool isGrounded { get; private set; }
     [HideInInspector] public Vector2 groundNormal { get; private set; } = Vector2.up;
 
-    private Rigidbody2D rb;
+    [HideInInspector]
+    public Rigidbody2D rb;
     private Collider2D col;
 
     void Awake()

@@ -1,18 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[RequireComponent(typeof(Rigidbody2D))]
 public class RunMS : MovementState
 {
-    private Rigidbody2D rb;
-
     public float speed;
+    public float gravityScale;
+
+    private float initialGravity;
 
     protected override void Awake()
     {
         base.Awake();
-        rb = GetComponent<Rigidbody2D>();
+    }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        
+        initialGravity = cc.rb.gravityScale;
+        cc.rb.gravityScale = gravityScale;
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+
+        cc.rb.gravityScale = initialGravity;
     }
 
     protected void FixedUpdate()
@@ -24,7 +37,7 @@ public class RunMS : MovementState
         }
         else
         {
-            move.y = rb.velocity.y;
+            move.y = cc.rb.velocity.y;
         }
         cc.SetVelocity(move);
     }
