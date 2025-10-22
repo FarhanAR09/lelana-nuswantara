@@ -6,6 +6,7 @@ using UnityEngine;
 public class WaitForInputWA : WeaponAction
 {
     public WeaponAction nextAction;
+    public WeaponInputType inputType = WeaponInputType.FireDown;
 
     public override void OnEnter()
     {
@@ -24,9 +25,29 @@ public class WaitForInputWA : WeaponAction
 
     public override void OnUpdate()
     {
-        if (context.fireUp)
+        if (CheckInput())
         {
             currentSequence.ChangeAction(nextAction);
         }
     }
+
+    private bool CheckInput()
+    {
+        return inputType switch
+        {
+            WeaponInputType.FireUp => context.fireUp,
+            WeaponInputType.FireDown => context.fireDown,
+            WeaponInputType.FireAltDown => context.fireAltDown,
+            WeaponInputType.FireAltUp => context.fireAltUp,
+            _ => false,
+        };
+    }
+}
+
+public enum WeaponInputType
+{
+    FireUp,
+    FireDown,
+    FireAltDown,
+    FireAltUp
 }

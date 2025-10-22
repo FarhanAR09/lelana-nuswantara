@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3115996864399844acdd462efe258eb, type: 3}
-  m_Name: LogInputs 2
+  m_Name: HBMelee
   m_EditorClassIdentifier: 
-  initialAction: {fileID: 11400000, guid: 72908dbe44a114e4d96dc8fd739195ee, type: 2}
+  initialAction: {fileID: 11400000, guid: 9a8bbc2cfcd26e94b9bbfd0896bd74fe, type: 2}
   activeAction: {fileID: 0}

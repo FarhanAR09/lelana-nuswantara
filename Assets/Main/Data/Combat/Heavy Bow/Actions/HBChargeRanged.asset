@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b132d3e9cf84946a4c7b2982c67b53, type: 3}
-  m_Name: Bow
+  m_Script: {fileID: 11500000, guid: f6ee17a9478107c449590f43726c0152, type: 3}
+  m_Name: HBChargeRanged
   m_EditorClassIdentifier: 
-  sequences:
-  - {fileID: 11400000, guid: d11fec62d4f1def40b581e80e3620fe1, type: 2}
-  - {fileID: 11400000, guid: 29c265a2b4b02eb49aa8a8c5a9e94e27, type: 2}
+  nextAction: {fileID: 11400000, guid: f671b38cf48b7d744910357d70a52416, type: 2}
+  startChargeInput: 2
+  endChargeInput: 3
+  chargeContextKey: RangedCharge
+  chargeDurationMax: 1

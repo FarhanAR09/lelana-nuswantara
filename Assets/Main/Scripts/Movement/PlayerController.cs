@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
         weapon1 = Instantiate(weapon1Data);
         weapon2 = Instantiate(weapon2Data);
 
-        combatManager.SetActiveWeapon(combatManager.activeWeapon != weapon1 ? weapon1 : weapon2);
+        combatManager.SetActiveWeaponInstance(combatManager.activeWeapon != weapon1 ? weapon1 : weapon2);
     }
 
     private void Update()
@@ -48,10 +48,22 @@ public class PlayerController : MonoBehaviour
         {
             combatManager.WeaponContext.fireUp = true;
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            combatManager.WeaponContext.fireAltDown = true;
+        }
+        if (Input.GetMouseButton(1))
+        {
+            combatManager.WeaponContext.fireAltIn = true;
+        }
+        if (Input.GetMouseButtonUp(1))
+        {
+            combatManager.WeaponContext.fireAltUp = true;
+        }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            combatManager.SetActiveWeapon(combatManager.activeWeapon != weapon1 ? weapon1 : weapon2);
+            combatManager.SetActiveWeaponInstance(combatManager.activeWeapon != weapon1 ? weapon1 : weapon2);
         }
     }
 }

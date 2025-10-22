@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66bed18e290f0b64ca2f015159ea792b, type: 3}
-  m_Name: 2 - WaitFireUp
+  m_Name: BMInputRanged
   m_EditorClassIdentifier: 
-  nextAction: {fileID: 11400000, guid: 0a6744f88ac38f54c9b4460715d87d7e, type: 2}
+  nextAction: {fileID: 11400000, guid: b7a9f256223c7b943a3d51721430aad7, type: 2}
+  inputType: 3

@@ -9,6 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 867be8c1f530fe247948e03c9c380a4d, type: 3}
-  m_Name: 1 - LogInputsWA
+  m_Script: {fileID: 11500000, guid: c3115996864399844acdd462efe258eb, type: 3}
+  m_Name: HBRanged
   m_EditorClassIdentifier: 
+  initialAction: {fileID: 11400000, guid: 65e14b705b7dc09419b02ff76ec91e9e, type: 2}
+  activeAction: {fileID: 0}

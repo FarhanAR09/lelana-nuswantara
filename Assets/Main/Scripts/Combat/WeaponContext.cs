@@ -6,6 +6,7 @@ public class WeaponContext
 {
     public Vector2 aimDirection = Vector2.zero;
     public bool fireDown = false, fireIn = false, fireUp = false;
+    public bool fireAltDown = false, fireAltIn = false, fireAltUp = false;
 
     private Dictionary<string, object> data = new();
 
@@ -27,5 +28,6 @@ public class WeaponContext
     {
         aimDirection = Vector2.zero;
         fireDown = false; fireIn = false; fireUp = false;
+        fireAltDown = false; fireAltIn = false; fireAltUp = false;
     }
 }

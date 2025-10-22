@@ -12,7 +12,7 @@ public class CombatManager : MonoBehaviour
 
     private void Start()
     {
-        SetActiveWeapon(Instantiate(activeWeapon));
+        SetActiveWeaponInstance(Instantiate(activeWeapon));
     }
 
     private void Update()
@@ -29,7 +29,7 @@ public class CombatManager : MonoBehaviour
             activeWeapon.OnPhysicsUpdate();
     }
 
-    public void SetActiveWeapon(WeaponSO weaponInstance)
+    public void SetActiveWeaponInstance(WeaponSO weaponInstance)
     {
         if (weaponInstance == null)
             return;

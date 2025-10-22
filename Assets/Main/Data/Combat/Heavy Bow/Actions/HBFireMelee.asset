@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66bed18e290f0b64ca2f015159ea792b, type: 3}
-  m_Name: HBMInitInput
+  m_Script: {fileID: 11500000, guid: 1b64c629196f23341bd5095d383fad04, type: 3}
+  m_Name: HBFireMelee
   m_EditorClassIdentifier: 
-  nextAction: {fileID: 11400000, guid: 2b004dc5807f0294887bd526efbe1f21, type: 2}
+  actionAfterFire: {fileID: 11400000, guid: 9a8bbc2cfcd26e94b9bbfd0896bd74fe, type: 2}
+  charged: 1
+  chargeContextKey: MeleeCharge
+  duration: 0.5

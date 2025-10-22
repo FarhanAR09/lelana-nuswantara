@@ -9,6 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 867be8c1f530fe247948e03c9c380a4d, type: 3}
-  m_Name: 2 - LogInputsWA
+  m_Script: {fileID: 11500000, guid: 1b64c629196f23341bd5095d383fad04, type: 3}
+  m_Name: BMFireMelee
   m_EditorClassIdentifier: 
+  actionAfterFire: {fileID: 11400000, guid: eed31a02fc09c314ba46da9e5bdd20ef, type: 2}
+  charged: 0
+  duration: 0.5

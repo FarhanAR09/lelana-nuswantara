@@ -9,6 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 867be8c1f530fe247948e03c9c380a4d, type: 3}
-  m_Name: HBMLog
+  m_Script: {fileID: 11500000, guid: f6ee17a9478107c449590f43726c0152, type: 3}
+  m_Name: HBChargeMelee
   m_EditorClassIdentifier: 
+  nextAction: {fileID: 11400000, guid: ddb38cd251fcf3d458e7a460eba4a814, type: 2}
+  startChargeInput: 1
+  endChargeInput: 0
+  chargeContextKey: MeleeCharge
+  chargeDurationMax: 1
