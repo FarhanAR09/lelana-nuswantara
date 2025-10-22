@@ -1436,8 +1436,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 1607026854}
   combatManager: {fileID: 1607026858}
-  weapon1: {fileID: 11400000, guid: b07d6e7b654f81743956ed8933540abe, type: 2}
-  weapon2: {fileID: 11400000, guid: 73af7ef43b15fa244ad6b859e25ff127, type: 2}
+  weapon1Data: {fileID: 11400000, guid: b07d6e7b654f81743956ed8933540abe, type: 2}
+  weapon2Data: {fileID: 11400000, guid: 73af7ef43b15fa244ad6b859e25ff127, type: 2}
 --- !u!212 &1607026850
 SpriteRenderer:
   m_ObjectHideFlags: 0

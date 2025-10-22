@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b132d3e9cf84946a4c7b2982c67b53, type: 3}
-  m_Name: Heavy Bow
+  m_Script: {fileID: 11500000, guid: 867be8c1f530fe247948e03c9c380a4d, type: 3}
+  m_Name: HBMLog
   m_EditorClassIdentifier: 
-  sequences:
-  - {fileID: 11400000, guid: 7f4fcc7ddadf2de4bb03b15faf1ee9ed, type: 2}

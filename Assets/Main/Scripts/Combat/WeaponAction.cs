@@ -2,7 +2,6 @@ using UnityEngine;
 
 public abstract class WeaponAction : ScriptableObject
 {
-    public WeaponAction nextAction;
     protected WeaponSequence currentSequence;
     protected WeaponContext context;
 
@@ -11,9 +10,9 @@ public abstract class WeaponAction : ScriptableObject
     public abstract void OnPhysicsUpdate();
     public abstract void OnExit();
 
-    public void ChangeState()
+    public void ChangeState(WeaponAction newAction)
     {
-        currentSequence.ChangeAction(nextAction);
+        currentSequence.ChangeAction(newAction);
     }
 
     public void Initialize(WeaponSequence sequence, WeaponContext context)

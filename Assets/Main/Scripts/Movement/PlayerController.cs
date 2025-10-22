@@ -9,7 +9,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private CombatManager combatManager;
 
-    public WeaponSO weapon1, weapon2;
+    public WeaponSO weapon1Data, weapon2Data;
+    private WeaponSO weapon1, weapon2;
+
+    private void Awake()
+    {
+        weapon1 = Instantiate(weapon1Data);
+        weapon2 = Instantiate(weapon2Data);
+
+        combatManager.SetActiveWeapon(combatManager.activeWeapon != weapon1 ? weapon1 : weapon2);
+    }
 
     private void Update()
     {

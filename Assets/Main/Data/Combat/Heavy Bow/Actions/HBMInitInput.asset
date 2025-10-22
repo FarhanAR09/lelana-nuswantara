@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b132d3e9cf84946a4c7b2982c67b53, type: 3}
-  m_Name: Bow
+  m_Script: {fileID: 11500000, guid: 66bed18e290f0b64ca2f015159ea792b, type: 3}
+  m_Name: HBMInitInput
   m_EditorClassIdentifier: 
-  sequences:
-  - {fileID: 11400000, guid: 2b13e19e1f32b274e9f6339f5b17774b, type: 2}
+  nextAction: {fileID: 11400000, guid: 2b004dc5807f0294887bd526efbe1f21, type: 2}

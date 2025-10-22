@@ -5,24 +5,21 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Combat/Weapon Sequence")]
 public class WeaponSequence : ScriptableObject
 {
+    public WeaponAction initialAction;
     public WeaponAction activeAction;
-    public List<WeaponAction> actions;
+    private WeaponContext context;
 
-    public void ChangeAction(WeaponAction newAction)
+    public void ChangeAction(WeaponAction newActionData)
     {
-        if (newAction == null)
+        if (newActionData == null)
         {
             return;
         }
 
-        if (actions.Contains(newAction) == false)
-        {
-            Debug.LogWarning("Tried to change to an action that doesn't exist in weapon sequence.");
-            return;
-        }
         if (activeAction != null)
             activeAction.OnExit();
-        activeAction = newAction;
+        activeAction = Instantiate(newActionData);
+        activeAction.Initialize(this, context);
         activeAction.OnEnter();
     }
 
@@ -40,9 +37,17 @@ public class WeaponSequence : ScriptableObject
 
     public void Initialize(WeaponContext context)
     {
-        foreach (var action in actions)
+        this.context = context;
+        var instantiating = activeAction != null ? activeAction : initialAction != null ? initialAction : null;
+        if (instantiating != null)
         {
-            action.Initialize(this, context);
+            activeAction = Instantiate(instantiating);
+            activeAction.Initialize(this, context);
         }
+    }
+
+    public void ResetSequence()
+    {
+        ChangeAction(initialAction);
     }
 }

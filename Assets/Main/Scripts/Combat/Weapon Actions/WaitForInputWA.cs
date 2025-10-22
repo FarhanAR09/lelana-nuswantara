@@ -1,17 +1,15 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "LogInputsWA", menuName = "Combat/Weapon Actions/LogInputsWA")]
-public class LogInputsWA : WeaponAction
+[CreateAssetMenu(menuName = "Combat/Weapon Actions/Wait For Input")]
+public class WaitForInputWA : WeaponAction
 {
+    public WeaponAction nextAction;
+
     public override void OnEnter()
     {
-        if (context.fireUp)
-        {
-            Debug.Log(name + ": Hello");
-        }
+        
     }
 
     public override void OnExit()
@@ -26,6 +24,9 @@ public class LogInputsWA : WeaponAction
 
     public override void OnUpdate()
     {
-        
+        if (context.fireUp)
+        {
+            currentSequence.ChangeAction(nextAction);
+        }
     }
 }

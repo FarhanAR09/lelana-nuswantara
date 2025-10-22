@@ -9,6 +9,11 @@ public class WeaponSO : ScriptableObject
 
     public void Initialize(WeaponContext context)
     {
+        for (int i = 0; i < sequences.Count; i++)
+        {
+            sequences[i] = Instantiate(sequences[i]);
+        }
+
         foreach (var sequence in sequences)
         {
             sequence.Initialize(context);
@@ -19,7 +24,7 @@ public class WeaponSO : ScriptableObject
     {
         foreach (var sequence in sequences)
         {
-            sequence.ChangeAction(sequence.actions[0]);
+            sequence.ChangeAction(sequence.initialAction);
         }
     }
     public void OnUpdate()

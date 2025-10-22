@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 867be8c1f530fe247948e03c9c380a4d, type: 3}
-  m_Name: LogInputsWA 2
+  m_Script: {fileID: 11500000, guid: 66bed18e290f0b64ca2f015159ea792b, type: 3}
+  m_Name: 2 - WaitFireUp
   m_EditorClassIdentifier: 
-  nextAction: {fileID: 0}
+  nextAction: {fileID: 11400000, guid: 0a6744f88ac38f54c9b4460715d87d7e, type: 2}
