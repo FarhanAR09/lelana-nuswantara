@@ -3,16 +3,19 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class CharacterController2D : MonoBehaviour
 {
-    [Header("Settings")]
+    [Header("Ground Settings")]
     public float groundCheckDistance = 0.1f;
     public LayerMask groundLayer;
+    [Tooltip("Maximum angle (in degrees) that counts as walkable ground.")]
+    [Range(0f, 89f)] public float maxWalkableSlope = 45f;
 
     [HideInInspector] public bool isGrounded { get; private set; }
-    [HideInInspector] public Vector2 groundNormal { get; private set; } = Vector2.up;
+    [HideInInspector] public Vector2 groundNormal { get; private set; }
 
-    [HideInInspector]
-    public Rigidbody2D rb;
+    [HideInInspector] public Rigidbody2D rb;
     private Collider2D col;
+
+    private float minWalkableNormalY;
 
     void Awake()
     {
@@ -21,21 +24,13 @@ public class CharacterController2D : MonoBehaviour
 
         rb.freezeRotation = true;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+
+        minWalkableNormalY = Mathf.Cos(maxWalkableSlope * Mathf.Deg2Rad);
     }
 
     void FixedUpdate()
     {
         CheckGrounded();
-    }
-
-    public void Move(Vector2 position)
-    {
-        rb.MovePosition(position);
-    }
-
-    public void SetVelocity(Vector2 velocity)
-    {
-        rb.velocity = velocity;
     }
 
     private void CheckGrounded()
@@ -45,7 +40,7 @@ public class CharacterController2D : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.BoxCast(origin, col.bounds.size, 0f, Vector2.down, extraHeight, groundLayer);
 
-        if (hit.collider != null)
+        if (hit.collider != null && hit.normal.y >= minWalkableNormalY)
         {
             isGrounded = true;
             groundNormal = hit.normal;
@@ -57,17 +52,21 @@ public class CharacterController2D : MonoBehaviour
         }
     }
 
+    public void SetVelocity(Vector2 velocity)
+    {
+        rb.velocity = velocity;
+    }
+
+    private void OnValidate()
+    {
+        // Update threshold automatically if value is changed in inspector
+        minWalkableNormalY = Mathf.Cos(maxWalkableSlope * Mathf.Deg2Rad);
+    }
+
     private void OnDrawGizmosSelected()
     {
         if (col == null) return;
         Gizmos.color = isGrounded ? Color.green : Color.red;
         Gizmos.DrawWireCube(col.bounds.center + Vector3.down * groundCheckDistance / 2f, col.bounds.size);
-
-        // visualize normal
-        if (isGrounded)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawLine(col.bounds.center, col.bounds.center + (Vector3)groundNormal * 0.5f);
-        }
     }
 }
