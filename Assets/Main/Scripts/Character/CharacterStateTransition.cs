@@ -1,16 +1,17 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
-[System.Serializable]
-public class MovementTransition
+[Serializable]
+public class CharacterStateTransition
 {
     public string name;
-    public MovementState targetState;
+    public CharacterState targetState;
 
-    public List<MovementTransitionCondition> conditions;
+    public List<CharacterStateTransitionCondition> conditions;
 
-    public void ResetConditions(MovementBrain owner)
+    public void ResetConditions(CharacterBrain owner)
     {
         for (int i = 0; i < conditions.Count; i++)
         {
@@ -19,7 +20,7 @@ public class MovementTransition
         }
     }
 
-    public bool CanTransition(MovementBrain brain)
+    public bool CanTransition(CharacterBrain brain)
     {
         foreach (var condition in conditions)
         {

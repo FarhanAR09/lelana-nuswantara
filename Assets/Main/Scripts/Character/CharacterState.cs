@@ -1,17 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 [DefaultExecutionOrder(2147483647)]
-[RequireComponent(typeof(CharacterController2D))]
-[RequireComponent(typeof(MovementBrain))]
-public class MovementState : MonoBehaviour
+[RequireComponent(typeof(CharacterBrain))]
+public class CharacterState : MonoBehaviour
 {
-    protected CharacterController2D cc;
-    protected MovementBrain brain;
-    
-    public List<MovementTransition> transitions;
+    protected CharacterBrain brain;
+
+    public List<CharacterStateTransition> transitions;
 
     protected virtual void OnEnable()
     {
@@ -31,8 +28,7 @@ public class MovementState : MonoBehaviour
 
     protected virtual void Awake()
     {
-        cc = GetComponent<CharacterController2D>();
-        brain = GetComponent<MovementBrain>();
+        brain = GetComponent<CharacterBrain>();
 
         foreach (var transition in transitions)
         {
