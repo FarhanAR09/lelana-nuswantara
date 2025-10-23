@@ -16,3 +16,5 @@ MonoBehaviour:
   charged: 1
   chargeContextKey: MeleeCharge
   duration: 0.5
+  projectilePrefab: {fileID: 5380326229960971248, guid: 321416b76fdab0546b839d6bbfa2a5d9, type: 3}
+  projectileSpeed: 0

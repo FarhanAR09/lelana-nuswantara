@@ -10,6 +10,11 @@ public class CombatManager : MonoBehaviour
 
     private bool firstWeaponInitialized = false;
 
+    private void Awake()
+    {
+        WeaponContext.combatManager = this;
+    }
+
     private void Start()
     {
         SetActiveWeaponInstance(Instantiate(activeWeapon));

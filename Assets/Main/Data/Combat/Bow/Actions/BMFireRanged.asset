@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionAfterFire: {fileID: 11400000, guid: 9ac27ae513a8a9041944f8df475c7eca, type: 2}
   charged: 0
+  chargeContextKey: 
   duration: 1
+  projectilePrefab: {fileID: 2840193573135274777, guid: 69c7dfbfe69a5ac49ba71bdda0b45b74, type: 3}
+  projectileSpeed: 30

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WeaponContext
 {
+    public CombatManager combatManager;
     public Vector2 aimDirection = Vector2.zero;
     public bool fireDown = false, fireIn = false, fireUp = false;
     public bool fireAltDown = false, fireAltIn = false, fireAltUp = false;

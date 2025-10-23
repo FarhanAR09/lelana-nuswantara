@@ -16,3 +16,5 @@ MonoBehaviour:
   charged: 1
   chargeContextKey: RangedCharge
   duration: 0.5
+  projectilePrefab: {fileID: 2840193573135274777, guid: 69c7dfbfe69a5ac49ba71bdda0b45b74, type: 3}
+  projectileSpeed: 50

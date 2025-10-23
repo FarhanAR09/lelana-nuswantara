@@ -61,6 +61,11 @@ public class PlayerController : MonoBehaviour
             combatManager.WeaponContext.fireAltUp = true;
         }
 
+        Vector3 mouseScreenPos = Input.mousePosition;
+        mouseScreenPos.z = -Camera.main.transform.position.z;
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(mouseScreenPos);
+        combatManager.WeaponContext.aimDirection = (worldPos - transform.position).normalized;
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             combatManager.SetActiveWeaponInstance(combatManager.activeWeapon != weapon1 ? weapon1 : weapon2);

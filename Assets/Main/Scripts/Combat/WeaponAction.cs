@@ -20,5 +20,4 @@ public abstract class WeaponAction : ScriptableObject
         this.currentSequence = sequence;
         this.context = context;
     }
-
 }
