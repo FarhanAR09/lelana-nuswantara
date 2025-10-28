@@ -7,6 +7,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private WeaponContext weaponContext;
 
     public LayerMask hittableLayers;
     public float damage = 1f;
@@ -31,10 +32,18 @@ public class Projectile : MonoBehaviour
             hittable.Hit(1f);
             Destroy(gameObject);
         }
+
+        if (collision.TryGetComponent(out IKnockbackable knockbackable))
+        {
+            Vector2 velocity = collision.transform.position - weaponContext.combatManager.transform.position;
+            velocity.y = 10f;
+            knockbackable.Knockback(velocity);
+        }
     }
 
-    public void Launch(Vector2 velocity)
+    public void Launch(Vector2 velocity, WeaponContext weaponContext)
     {
         rb.velocity = velocity;
+        this.weaponContext = weaponContext;
     }
 }

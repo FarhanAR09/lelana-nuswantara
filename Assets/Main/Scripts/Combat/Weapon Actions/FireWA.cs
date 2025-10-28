@@ -29,7 +29,7 @@ public class FireWA : WeaponAction
         if (projectilePrefab != null)
         {
             var projectile = Instantiate(projectilePrefab, context.combatManager.transform.position, Quaternion.identity);
-            projectile.Launch(projectileSpeed * context.aimDirection);
+            projectile.Launch(projectileSpeed * context.aimDirection, context);
         }
     }
 

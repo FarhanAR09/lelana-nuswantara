@@ -204,6 +204,7 @@ GameObject:
   - component: {fileID: 118151385}
   - component: {fileID: 118151384}
   - component: {fileID: 118151394}
+  - component: {fileID: 118151400}
   - component: {fileID: 118151389}
   - component: {fileID: 118151393}
   - component: {fileID: 118151383}
@@ -211,6 +212,8 @@ GameObject:
   - component: {fileID: 118151395}
   - component: {fileID: 118151397}
   - component: {fileID: 118151396}
+  - component: {fileID: 118151399}
+  - component: {fileID: 118151398}
   m_Layer: 9
   m_Name: Enemy (Chase when Close)
   m_TagString: Untagged
@@ -456,7 +459,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4914e3936161f9a4daa09eec43076f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitions: []
+  transitions:
+  - name: 
+    targetState: {fileID: 118151400}
+    conditions:
+    - {fileID: 11400000, guid: 17942cad5b6f604408a7473197006b6a, type: 2}
   speed: 2
   gravityScale: 5
 --- !u!58 &118151395
@@ -493,7 +500,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.21133333}
   serializedVersion: 2
-  m_Radius: 5.19
+  m_Radius: 7.31
 --- !u!114 &118151396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +527,55 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 118151396}
+--- !u!114 &118151398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118151382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c4f299c116bfe4184e02e548101d7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  durationContextKey: KnockbackDuration
+  velocityContextKey: KnockbackVelocity
+--- !u!114 &118151399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118151382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f5d1163b7f9584b9cae5caa51f5b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &118151400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118151382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc3e58c7f8cbb1b4e9175b7dbed6352b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transitions:
+  - name: 
+    targetState: {fileID: 118151394}
+    conditions:
+    - {fileID: 11400000, guid: e7f72df21d443a748838d384346b6db1, type: 2}
+  - name: 
+    targetState: {fileID: 118151400}
+    conditions:
+    - {fileID: 11400000, guid: 17942cad5b6f604408a7473197006b6a, type: 2}
+  knockbackVelocityContextKey: KnockbackVelocity
+  gravityScale: 5
 --- !u!1 &311844355
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,6 +2199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0ad0b2179368942960b0cb7098a046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipActiveWeaponOnStart: 0
   activeWeapon: {fileID: 0}
 --- !u!1 &1682345778
 GameObject:

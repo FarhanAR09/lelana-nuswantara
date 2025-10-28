@@ -5,6 +5,7 @@ using UnityEngine;
 [DefaultExecutionOrder(-2147483648)]
 public class CombatManager : MonoBehaviour
 {
+    public bool equipActiveWeaponOnStart = true;
     public WeaponSO activeWeapon;
     public WeaponContext WeaponContext { get; private set; } = new();
 
@@ -17,7 +18,8 @@ public class CombatManager : MonoBehaviour
 
     private void Start()
     {
-        SetActiveWeaponInstance(Instantiate(activeWeapon));
+        if (equipActiveWeaponOnStart && activeWeapon != null)
+            SetActiveWeaponInstance(Instantiate(activeWeapon));
     }
 
     private void Update()

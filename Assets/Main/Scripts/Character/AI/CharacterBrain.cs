@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(GameObjectContextContainer))]
 [DefaultExecutionOrder(-2147483648)]
 public class CharacterBrain : MonoBehaviour
 {
     public List<CharacterState> states;
     public CharacterState activeState;
-
-    public Dictionary<string, object> Context { get; private set; } = new();
+    private GameObjectContextContainer contextContainer;
+    public Dictionary<string, object> Context
+    {
+        get => contextContainer.context;
+        private set => contextContainer.context = value;
+    }
 
     private void Awake()
     {
+        contextContainer = GetComponent<GameObjectContextContainer>();
         GetComponents(states);
 
         if (activeState != null)
