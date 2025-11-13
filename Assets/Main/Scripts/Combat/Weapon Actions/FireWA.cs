@@ -18,14 +18,14 @@ public class FireWA : WeaponAction
     {
         timer = 0f;
 
-        if (charged)
-        {
-            Debug.Log(name + " Charged Fire!!! " + context.Get<float>(chargeContextKey) + " " + context.aimDirection);
-        }
-        else
-        {
-            Debug.Log(name + " Fire!!!" + " " + context.aimDirection);
-        }
+        //if (charged)
+        //{
+        //    Debug.Log(name + " Charged Fire!!! " + context.Get<float>(chargeContextKey) + " " + context.aimDirection);
+        //}
+        //else
+        //{
+        //    Debug.Log(name + " Fire!!!" + " " + context.aimDirection);
+        //}
         if (projectilePrefab != null)
         {
             var projectile = Instantiate(projectilePrefab, context.combatManager.transform.position, Quaternion.identity);

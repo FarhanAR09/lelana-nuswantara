@@ -16,4 +16,5 @@ MonoBehaviour:
   startChargeInput: 1
   endChargeInput: 0
   chargeContextKey: MeleeCharge
+  onChargeStateEventKey: MeleeChargeStateChange
   chargeDurationMax: 1

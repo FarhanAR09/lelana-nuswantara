@@ -16,4 +16,5 @@ MonoBehaviour:
   startChargeInput: 2
   endChargeInput: 3
   chargeContextKey: RangedCharge
+  onChargeStateEventKey: RangedChargeStateChange
   chargeDurationMax: 1

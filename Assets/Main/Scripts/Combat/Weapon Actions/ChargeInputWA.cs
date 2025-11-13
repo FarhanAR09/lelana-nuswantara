@@ -9,7 +9,9 @@ public class ChargeInputWA : WeaponAction
     public WeaponInputType startChargeInput, endChargeInput;
 
     private bool isCharging = false;
-    public string chargeContextKey, onChargeStateEventKey;
+    public string
+        chargeContextKey,
+        onChargeStateEventKey = "ChargeStateChange";
     public float chargeDurationMax;
     private float chargeDuration;
 
@@ -47,6 +49,7 @@ public class ChargeInputWA : WeaponAction
         if (isCharging)
         {
             chargeDuration = Mathf.Clamp(chargeDuration + Time.deltaTime, 0f, chargeDurationMax);
+            context.Set<float>(chargeContextKey, chargeDuration / chargeDurationMax);
         }
     }
 
