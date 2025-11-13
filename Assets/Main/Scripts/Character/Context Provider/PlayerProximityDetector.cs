@@ -7,8 +7,21 @@ public class PlayerProximityDetector : MonoBehaviour
 {
     public bool PlayerDetected { get; private set; } = false;
     public PlayerController DetectedPlayer { get; private set; }
+    public CollisionEventHolder collisionEventHolder;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnEnable()
+    {
+        collisionEventHolder.onTriggerEnter2D += TriggerEnter2D;
+        collisionEventHolder.onTriggerExit2D += TriggerExit2D;
+    }
+
+    private void OnDisable()
+    {
+        collisionEventHolder.onTriggerEnter2D -= TriggerEnter2D;
+        collisionEventHolder.onTriggerExit2D -= TriggerExit2D;
+    }
+
+    private void TriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out PlayerController player))
         {
@@ -17,7 +30,7 @@ public class PlayerProximityDetector : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void TriggerExit2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out PlayerController player))
         {
