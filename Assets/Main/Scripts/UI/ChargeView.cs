@@ -12,12 +12,12 @@ public class ChargeView : MonoBehaviour
 
     private void OnEnable()
     {
-        combatManager.WeaponContext.onEventSent +=
+        combatManager.WeaponContext.onEventSent += SetActiveSlider;
     }
 
     private void OnDisable()
     {
-        
+        combatManager.WeaponContext.onEventSent -= SetActiveSlider;
     }
 
     private void SetActiveSlider(string key, object args)
