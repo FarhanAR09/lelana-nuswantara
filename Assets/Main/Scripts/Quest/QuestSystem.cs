@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class QuestSystem : Singleton<QuestSystem>
 {
+    #region Context
     public Dictionary<string, object> Context { get; set; } = new();
 
     public void SetContext<T>(string key, T value)
@@ -23,4 +24,21 @@ public class QuestSystem : Singleton<QuestSystem>
 
     public bool IsContextOfType<T>(string key)
         => Context.ContainsKey(key) && Context[key] is T;
+    #endregion
+    
+    #region Active Quests
+    public List<QuestSO> ActiveQuests { get; private set; } = new();
+
+    public void AddActiveQuest(QuestSO quest)
+    {
+        quest.RegisterRequirements();
+        ActiveQuests.Add(quest);
+    }
+
+    public void RemoveActiveQuest(QuestSO quest)
+    {
+        quest.UnregisterRequirements();
+        ActiveQuests.Remove(quest);
+    }
+    #endregion
 }
