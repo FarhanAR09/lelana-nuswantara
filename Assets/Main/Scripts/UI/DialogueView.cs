@@ -4,22 +4,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueView : MonoBehaviour
+public class DialogueView : Singleton<DialogueView>
 {
+    public bool IsOpen => dialoguePanel.activeInHierarchy;
+
     [SerializeField] GameObject dialoguePanel;
     [SerializeField] Image portraitDisplay;
     [SerializeField] TextMeshProUGUI nameDisplay, dialogueDisplay;
     [SerializeField] Button continueButton;
 
     DialogueNodeSO node;
-
-    [Header("Debug")]
-    [SerializeField] DialogueSO dialogue;
-
-    private void Start()
-    {
-        StartDialogue(dialogue);
-    }
 
     private void OnEnable()
     {
@@ -46,6 +40,11 @@ public class DialogueView : MonoBehaviour
 
     public void StartDialogue(DialogueSO dialogueSO)
     {
+        if (IsOpen)
+        {
+            return;
+        }
+
         if (dialogueSO == null || dialogueSO.initialNode == null)
         {
             dialoguePanel.SetActive(false);

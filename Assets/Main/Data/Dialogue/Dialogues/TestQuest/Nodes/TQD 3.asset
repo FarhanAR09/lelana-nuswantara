@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea47a5b838189c645b2de16a9bc7417e, type: 3}
-  m_Name: TD 1
+  m_Script: {fileID: 11500000, guid: becc59ebb63561e4f9f6d54bea26b17d, type: 3}
+  m_Name: TQD 3
   m_EditorClassIdentifier: 
-  speaker: {fileID: 11400000, guid: a7359a9f78b2b5648b0d21ab6c85c2b2, type: 2}
+  speaker: {fileID: 11400000, guid: 5847debd31d9841459056740bc7880c3, type: 2}
   emotion: 0
-  text: Hello World!
+  text: Please kill the triangle
   condition: {fileID: 0}
-  nextNodes:
-  - {fileID: 11400000, guid: 99a50dab4c06a1f47bce6097834727c2, type: 2}
+  nextNodes: []
+  quest: {fileID: 11400000, guid: dbc6e2794442ffb4b8d560101b7fae36, type: 2}

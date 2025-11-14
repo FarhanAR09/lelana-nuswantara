@@ -12,7 +12,8 @@ public class QuestSO : ScriptableObject
     public List<DialogueNodeSO> initialDialogue;
     public List<DialogueNodeSO> turnInDialogue;
 
-    public UnityAction onCompleted;
+    public UnityAction<QuestSO> onCompleted;
+    public ActionSO rewardAction;
 
     public void RegisterRequirements()
     {
@@ -39,6 +40,11 @@ public class QuestSO : ScriptableObject
             if (!requirement.IsComplete())
                 return;
         }
-        onCompleted?.Invoke();
+        onCompleted?.Invoke(this);
+    }
+
+    public void GiveReward()
+    {
+        rewardAction.Invoke(null);
     }
 }

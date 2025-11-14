@@ -5,5 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Dialogue/Node/Quest", fileName = "Quest Node")]
 public class QuestDN : DialogueNodeSO
 {
-    
+    public QuestSO quest;
+
+    public void StartQuest()
+    {
+        if (QuestSystem.Instance != null)
+        {
+            QuestSystem.Instance.AddActiveQuest(quest);
+        }
+    }
 }

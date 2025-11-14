@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea47a5b838189c645b2de16a9bc7417e, type: 3}
-  m_Name: TD1 2
+  m_Name: TQD 2
   m_EditorClassIdentifier: 
   speaker: {fileID: 11400000, guid: a7359a9f78b2b5648b0d21ab6c85c2b2, type: 2}
   emotion: 0
-  text: Hello World! 2
+  text: How can I help you?
   condition: {fileID: 0}
   nextNodes:
-  - {fileID: 11400000, guid: 52c17c282fbcfbc4db6992777c6a4f74, type: 2}
+  - {fileID: 11400000, guid: 0c592e61bca80c04baf197eb736f6d02, type: 2}

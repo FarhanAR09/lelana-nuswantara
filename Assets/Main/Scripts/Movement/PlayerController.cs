@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     private MovementBrain brain;
     [SerializeField]
     private CombatManager combatManager;
+    [SerializeField]
+    private InteractibleDetector interactibleDetector;
 
     public WeaponSO weapon1Data, weapon2Data;
     private WeaponSO weapon1, weapon2;
@@ -23,6 +25,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            interactibleDetector.TryInteract();
+        }
+
         brain.inputs.horizontal = Input.GetAxis("Horizontal");
         if (Input.GetKeyDown(KeyCode.Space))
         {
