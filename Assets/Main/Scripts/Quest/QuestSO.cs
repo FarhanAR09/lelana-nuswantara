@@ -40,11 +40,13 @@ public class QuestSO : ScriptableObject
             if (!requirement.IsComplete())
                 return;
         }
+        Debug.Log(name + " is complete!");
         onCompleted?.Invoke(this);
     }
 
     public void GiveReward()
     {
+        Debug.Log("Reward Given");
         rewardAction.Invoke(null);
     }
 }

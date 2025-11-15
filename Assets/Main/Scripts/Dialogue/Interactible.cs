@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Interactible : MonoBehaviour
 {
     [SerializeField] DialogueSO dialogue;
-    [SerializeField] Image iconImage;
+    [SerializeField] Image iconImage, questIconImage;
 
     private void Start()
     {
@@ -24,5 +24,11 @@ public class Interactible : MonoBehaviour
     public void ChangeIconVisibility(bool state)
     {
         iconImage.gameObject.SetActive(state);
+
+        questIconImage.gameObject.SetActive(false);
+        if (dialogue.ContainsQuest)
+        {
+            questIconImage.gameObject.SetActive(!state);
+        }
     }
 }

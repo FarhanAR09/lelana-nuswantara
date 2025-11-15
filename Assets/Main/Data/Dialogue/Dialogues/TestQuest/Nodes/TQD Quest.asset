@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: Kill the Triangle
   requirements:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: c1b39230a7097b44d96cde83c6adfa29, type: 2}
   autoTurnIn: 1
   initialDialogue: []
   turnInDialogue: []
-  rewardAction: {fileID: 0}
+  rewardAction: {fileID: 11400000, guid: d71ad31c8177df84e9cb1ce2b30acaeb, type: 2}
