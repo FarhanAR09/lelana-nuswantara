@@ -12,11 +12,14 @@ public class DialogueCharacterSO : ScriptableObject
 
     public Sprite GetPortrait(DialogueEmotion emotion)
     {
-        foreach (EmotionPortrait ep in emotionsPortrait)
+        if (emotionsPortrait != null && emotionsPortrait.Count > 0)
         {
-            if (ep.emotion == emotion)
+            foreach (EmotionPortrait ep in emotionsPortrait)
             {
-                return ep.portrait;
+                if (ep.emotion == emotion)
+                {
+                    return ep.portrait;
+                }
             }
         }
         return defaultPortrait;

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: becc59ebb63561e4f9f6d54bea26b17d, type: 3}
+  m_Name: D-1-1-15Q
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 8063a67fb0abfab439f4567da02a75e8, type: 2}
+  emotion: 0
+  text: <Sighs> Fine, but whatever happened, don't go outside the magic circle, okay?
+  condition: {fileID: 0}
+  nextNodes: []
+  focusObjectId: Rama
+  quest: {fileID: 11400000, guid: 7b264dcc1cf99c748a5db145d1ac3db2, type: 2}
+  forceAccept: 1
+  acceptNodes:
+  - {fileID: 11400000, guid: c39c9f8fb2016284baf3a357ed15907e, type: 2}
+  declineNodes:
+  - {fileID: 11400000, guid: 17522bd96f5623f468d303b6de3b8d05, type: 2}

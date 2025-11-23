@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public static class GlobalEvent
+public static partial class GlobalEvent
 {
     /// <summary>
     /// Invoked when a global event is invoked with the given key and data

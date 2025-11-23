@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970a3b23d53f3994ba6cdbbe3cc77718, type: 3}
+  m_Name: D-1-0-2
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 6668f5ec3392927438c2bcb27ddb5b1f, type: 2}
+  emotion: 0
+  text: ha
+  condition: {fileID: 0}
+  nextNodes:
+  - {fileID: 11400000, guid: c1aee4a8a6427cc4a8ac91ea341870e3, type: 2}
+  focusObjectId: 
+  actionOnInteract: {fileID: 0}

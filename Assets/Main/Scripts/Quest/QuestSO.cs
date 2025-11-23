@@ -12,6 +12,9 @@ public class QuestSO : ScriptableObject
     public List<DialogueNodeSO> initialDialogue;
     public List<DialogueNodeSO> turnInDialogue;
 
+    /// <summary>
+    /// For inheritance: MUST be called when the quest is completed
+    /// </summary>
     public UnityAction<QuestSO> onCompleted;
     public ActionSO rewardAction;
 
@@ -40,13 +43,11 @@ public class QuestSO : ScriptableObject
             if (!requirement.IsComplete())
                 return;
         }
-        Debug.Log(name + " is complete!");
         onCompleted?.Invoke(this);
     }
 
     public void GiveReward()
     {
-        Debug.Log("Reward Given");
         rewardAction.Invoke(null);
     }
 }

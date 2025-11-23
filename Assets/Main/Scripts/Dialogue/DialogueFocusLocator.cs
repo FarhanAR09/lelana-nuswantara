@@ -19,6 +19,7 @@ public class DialogueFocusLocator : Singleton<DialogueFocusLocator>
 
     public Transform FindFocusObject(string id)
     {
-        return focusObjects.Find(x => x.Id == id).transform;
+        var obj = focusObjects.Find(x => x.Id == id);
+        return obj != null ? obj.transform : null;
     }
 }

@@ -30,34 +30,55 @@ public class QuestSystem : Singleton<QuestSystem>
     public List<QuestSO> ActiveQuests { get; private set; } = new();
     public List<QuestSO> ReadyToTurnInQuests { get; private set; } = new();
     public List<QuestSO> CompletedQuests { get; private set; } = new();
-
-    public void AddActiveQuest(QuestSO quest)
+    public List<QuestSO> AllQuests
     {
-        quest.RegisterRequirements();
-        quest.onCompleted += FulfillQuest;
-        ActiveQuests.Add(quest);
-    }
-
-    public void RemoveActiveQuest(QuestSO quest)
-    {
-        quest.UnregisterRequirements();
-        quest.onCompleted -= FulfillQuest;
-        ActiveQuests.Remove(quest);
-    }
-
-    private void FulfillQuest(QuestSO quest)
-    {
-        RemoveActiveQuest(quest);
-        ReadyToTurnInQuests.Add(quest);
-        if (quest.autoTurnIn)
+        get
         {
-            TurnIn(quest);
+            List<QuestSO> allQuests = new();
+            allQuests.AddRange(ActiveQuests);
+            allQuests.AddRange(ReadyToTurnInQuests);
+            allQuests.AddRange(CompletedQuests);
+            return allQuests;
         }
     }
 
-    public void TurnIn(QuestSO quest)
+    public void AddToActiveQuest(QuestSO quest)
     {
-        if (ActiveQuests.Contains(quest))
+        if (AllQuests.Contains(quest))
+            return;
+
+        quest.RegisterRequirements();
+        quest.onCompleted += FulfillActiveQuest;
+        ActiveQuests.Add(quest);
+    }
+
+    public void RemoveFromActiveQuest(QuestSO quest)
+    {
+        if (!ActiveQuests.Contains(quest))
+            return;
+
+        quest.UnregisterRequirements();
+        quest.onCompleted -= FulfillActiveQuest;
+        ActiveQuests.Remove(quest);
+    }
+
+    private void FulfillActiveQuest(QuestSO quest)
+    {
+        Debug.Log("Fulfilled Quest: " + quest.name);
+        if (!ActiveQuests.Contains(quest))
+            return;
+
+        RemoveFromActiveQuest(quest);
+        ReadyToTurnInQuests.Add(quest);
+        if (quest.autoTurnIn)
+        {
+            TurnInQuest(quest);
+        }
+    }
+
+    public void TurnInQuest(QuestSO quest)
+    {
+        if (ActiveQuests.Contains(quest) || ReadyToTurnInQuests.Contains(quest))
         {
             ReadyToTurnInQuests.Remove(quest);
             CompletedQuests.Add(quest);

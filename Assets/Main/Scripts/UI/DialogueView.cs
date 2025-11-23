@@ -43,15 +43,23 @@ public class DialogueView : Singleton<DialogueView>
         declineQuestButton.onClick.RemoveListener(DeclineQuest);
     }
 
-    private void Start()
-    {
-        dialoguePanel.SetActive(false);
-    }
-
     private void ContinueDialogue()
     {
-        var newNode = node.GetNextNode();
-        
+        continueButton.interactable = true;
+
+        DialogueNodeSO newNode;
+        if (node is QuestDN)
+        {
+            if (questAccepted)
+                newNode = (node as QuestDN).GetAcceptNode();
+            else
+                newNode = (node as QuestDN).GetDeclineNode();
+        }
+        else
+        {
+            newNode = node.GetNextNode();
+        }
+
         // Dialogue Finished
         if (newNode == null)
         {
@@ -60,6 +68,7 @@ public class DialogueView : Singleton<DialogueView>
             OnDialogueEnd.Invoke();
             return;
         }
+        
         node = newNode;
 
         UpdateDisplay(node);
@@ -72,13 +81,14 @@ public class DialogueView : Singleton<DialogueView>
             return;
         }
 
-        if (dialogueSO == null || dialogueSO.initialNode == null)
+        if (dialogueSO == null || dialogueSO.GetInitialNode() == null)
         {
             dialoguePanel.SetActive(false);
+            Debug.LogWarning("dialogueSO == null || dialogueSO.initialNode == null");
             return;
         }
 
-        node = dialogueSO.initialNode;
+        node = dialogueSO.GetInitialNode();
         dialoguePanel.SetActive(true);
         UpdateDisplay(node);
 
@@ -93,10 +103,13 @@ public class DialogueView : Singleton<DialogueView>
         portraitDisplay.sprite = node.speaker.GetPortrait(node.emotion);
         nameDisplay.text = node.speaker.characterName;
         dialogueDisplay.text = node.text;
+        continueButton.interactable = true;
 
-        if (node is QuestDN)
+        if (node is QuestDN dN)
         {
             questPanel.SetActive(true);
+            declineQuestButton.gameObject.SetActive(!dN.forceAccept);
+            continueButton.interactable = false;
         }
         else
         {
@@ -111,10 +124,17 @@ public class DialogueView : Singleton<DialogueView>
                 dialogueCamera.Follow = focus;
             }
         }
+
+        if (node.actionOnInteract != null)
+        {
+            node.actionOnInteract.Invoke(null);
+        }
     }
 
+    private bool questAccepted = false;
     private void AcceptQuest()
     {
+        questAccepted = true;
         if (node is QuestDN)
         {
             (node as QuestDN).StartQuest();
@@ -124,6 +144,7 @@ public class DialogueView : Singleton<DialogueView>
 
     private void DeclineQuest()
     {
+        questAccepted = false;
         ContinueDialogue();
     }
 }

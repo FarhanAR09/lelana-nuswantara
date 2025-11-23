@@ -9,14 +9,22 @@ public abstract class DialogueNodeSO : ScriptableObject
     public string text;
     public DialogueNodeCondition condition;
     public List<DialogueNodeSO> nextNodes = new();
-    public string focusObjectId;
-
-    public DialogueNodeSO GetNextNode()
+    public virtual List<DialogueNodeSO> NextNodes
     {
-        if (nextNodes.Count > 0)
+        get { return nextNodes; }
+        protected set { nextNodes = value; }
+    }
+    public string focusObjectId;
+    public ActionSO actionOnInteract;
+
+    public virtual DialogueNodeSO GetNextNode()
+    {
+        if (NextNodes.Count > 0)
         {
-            foreach (DialogueNodeSO node in nextNodes)
+            foreach (DialogueNodeSO node in NextNodes)
             {
+                if (node == null)
+                    continue;
                 if (node.EligibleForTransition())
                 {
                     return node;

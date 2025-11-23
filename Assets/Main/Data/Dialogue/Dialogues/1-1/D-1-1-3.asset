@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970a3b23d53f3994ba6cdbbe3cc77718, type: 3}
+  m_Name: D-1-1-3
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 8063a67fb0abfab439f4567da02a75e8, type: 2}
+  emotion: 0
+  text: Still a bit sore, dear, but at least I'm fresh now.
+  condition: {fileID: 0}
+  nextNodes:
+  - {fileID: 11400000, guid: 87ee08afe3f36ac4a8e8f668371d226a, type: 2}
+  focusObjectId: Rama

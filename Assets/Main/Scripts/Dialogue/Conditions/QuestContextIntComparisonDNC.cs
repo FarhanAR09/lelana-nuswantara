@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Dialogue/Conditions/Quest Context Int Comparison", fileName = "Quest Context Int Comparison")]
+[CreateAssetMenu(menuName = "Dialogue/Condition/Quest Context Int Comparison", fileName = "Quest Context Int Comparison")]
 public class QuestContextIntComparisonDNC : DialogueNodeCondition
 {
     public string contextKey;
