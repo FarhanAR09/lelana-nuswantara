@@ -17,4 +17,5 @@ MonoBehaviour:
   text: Please kill the triangle
   condition: {fileID: 0}
   nextNodes: []
+  focusObjectId: Villager1
   quest: {fileID: 11400000, guid: dbc6e2794442ffb4b8d560101b7fae36, type: 2}

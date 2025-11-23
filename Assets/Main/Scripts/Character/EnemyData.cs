@@ -26,7 +26,7 @@ public class EnemyData : MonoBehaviour, IHittable
 
     private void Kill()
     {
-        GlobalEvent.onEnemyKilled(this);
+        GlobalEvent.onEnemyKilled?.Invoke(this);
         Destroy(gameObject);
     }
 }

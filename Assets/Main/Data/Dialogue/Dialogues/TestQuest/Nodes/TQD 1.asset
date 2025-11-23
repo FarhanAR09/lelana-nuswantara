@@ -18,3 +18,4 @@ MonoBehaviour:
   condition: {fileID: 0}
   nextNodes:
   - {fileID: 11400000, guid: 70ffc6bcd6386fc4f8cabcc8e8869dd2, type: 2}
+  focusObjectId: Villager1

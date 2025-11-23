@@ -1,18 +1,26 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class DialogueView : Singleton<DialogueView>
 {
     public bool IsOpen => dialoguePanel.activeInHierarchy;
 
+    public UnityEvent OnDialogueStart { get; private set; } = new();
+    public UnityEvent OnDialogueEnd { get; private set; } = new();
+
     [Header("Basic UI")]
     [SerializeField] GameObject dialoguePanel;
     [SerializeField] Image portraitDisplay;
     [SerializeField] TextMeshProUGUI nameDisplay, dialogueDisplay;
     [SerializeField] Button continueButton;
+    [SerializeField] CinemachineVirtualCamera dialogueCamera;
+    [SerializeField] int activeCameraPriority = 10;
+    private int originalCameraPriority = 0;
 
     [Header("Quest UI")]
     [SerializeField] GameObject questPanel;
@@ -43,9 +51,13 @@ public class DialogueView : Singleton<DialogueView>
     private void ContinueDialogue()
     {
         var newNode = node.GetNextNode();
+        
+        // Dialogue Finished
         if (newNode == null)
         {
             dialoguePanel.SetActive(false);
+            dialogueCamera.Priority = originalCameraPriority;
+            OnDialogueEnd.Invoke();
             return;
         }
         node = newNode;
@@ -69,6 +81,11 @@ public class DialogueView : Singleton<DialogueView>
         node = dialogueSO.initialNode;
         dialoguePanel.SetActive(true);
         UpdateDisplay(node);
+
+        originalCameraPriority = dialogueCamera.Priority;
+        dialogueCamera.Priority = activeCameraPriority;
+
+        OnDialogueStart.Invoke();
     }
 
     private void UpdateDisplay(DialogueNodeSO node)
@@ -84,6 +101,15 @@ public class DialogueView : Singleton<DialogueView>
         else
         {
             questPanel.SetActive(false);
+        }
+
+        if (node.focusObjectId != null && node.focusObjectId != "")
+        {
+            Transform focus = DialogueFocusLocator.Instance.FindFocusObject(node.focusObjectId);
+            if (focus != null)
+            {
+                dialogueCamera.Follow = focus;
+            }
         }
     }
 

@@ -9,6 +9,7 @@ public abstract class DialogueNodeSO : ScriptableObject
     public string text;
     public DialogueNodeCondition condition;
     public List<DialogueNodeSO> nextNodes = new();
+    public string focusObjectId;
 
     public DialogueNodeSO GetNextNode()
     {

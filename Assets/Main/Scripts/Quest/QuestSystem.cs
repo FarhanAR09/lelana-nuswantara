@@ -29,6 +29,7 @@ public class QuestSystem : Singleton<QuestSystem>
     #region Quests
     public List<QuestSO> ActiveQuests { get; private set; } = new();
     public List<QuestSO> ReadyToTurnInQuests { get; private set; } = new();
+    public List<QuestSO> CompletedQuests { get; private set; } = new();
 
     public void AddActiveQuest(QuestSO quest)
     {
@@ -59,6 +60,7 @@ public class QuestSystem : Singleton<QuestSystem>
         if (ActiveQuests.Contains(quest))
         {
             ReadyToTurnInQuests.Remove(quest);
+            CompletedQuests.Add(quest);
             quest.GiveReward();
         }
     }
