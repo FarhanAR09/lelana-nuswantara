@@ -17,6 +17,6 @@ MonoBehaviour:
   text: Very good...
   condition: {fileID: 0}
   nextNodes:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 9b6b811d0a7538c4894cd63e1ee9ea24, type: 2}
   focusObjectId: 
   actionOnInteract: {fileID: 11400000, guid: d69c4d2fdda6eab4f8e52cc9e8ba1028, type: 2}

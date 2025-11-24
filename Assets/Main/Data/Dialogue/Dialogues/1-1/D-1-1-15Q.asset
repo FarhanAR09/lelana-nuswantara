@@ -18,6 +18,7 @@ MonoBehaviour:
   condition: {fileID: 0}
   nextNodes: []
   focusObjectId: Rama
+  actionOnInteract: {fileID: 0}
   quest: {fileID: 11400000, guid: 7b264dcc1cf99c748a5db145d1ac3db2, type: 2}
   forceAccept: 1
   acceptNodes:

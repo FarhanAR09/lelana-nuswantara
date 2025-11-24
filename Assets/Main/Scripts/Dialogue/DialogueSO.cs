@@ -7,6 +7,7 @@ using UnityEngine;
 public class DialogueSO : ScriptableObject
 {
     public List<DialogueNodeSO> initialNodes;
+    public DialogueViewSettings dialogueViewSettingsOverride = null;
     public bool ContainsAvailableQuest
     {
         get

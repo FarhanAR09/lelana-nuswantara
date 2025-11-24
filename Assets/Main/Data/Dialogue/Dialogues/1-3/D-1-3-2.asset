@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 970a3b23d53f3994ba6cdbbe3cc77718, type: 3}
-  m_Name: D-1-1-16
+  m_Script: {fileID: 11500000, guid: ea47a5b838189c645b2de16a9bc7417e, type: 3}
+  m_Name: D-1-3-2
   m_EditorClassIdentifier: 
-  speaker: {fileID: 11400000, guid: 9df377741263d4f43b218db6096d176f, type: 2}
+  speaker: {fileID: 11400000, guid: 8063a67fb0abfab439f4567da02a75e8, type: 2}
   emotion: 0
-  text: Thank you, dear!
+  text: Well, better go back to home and hunt again.
   condition: {fileID: 0}
-  nextNodes:
-  - {fileID: 11400000, guid: 84b4d740eb4ad9644bf55ea4850b503a, type: 2}
-  focusObjectId: Sinta
+  nextNodes: []
+  focusObjectId: Rama
   actionOnInteract: {fileID: 0}

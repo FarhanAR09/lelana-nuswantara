@@ -11,7 +11,6 @@ public class SetActiveActionSO : ActionSO
 
     public override void Invoke(object args)
     {
-        Debug.Log("Fuck you");
         GameObject gameObject = FindInSceneRecursive(gameObjectName);
         if (gameObject == null)
         {

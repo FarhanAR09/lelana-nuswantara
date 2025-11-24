@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 970a3b23d53f3994ba6cdbbe3cc77718, type: 3}
-  m_Name: D-1-1-16
+  m_Name: D-1-0-6
   m_EditorClassIdentifier: 
-  speaker: {fileID: 11400000, guid: 9df377741263d4f43b218db6096d176f, type: 2}
+  speaker: {fileID: 11400000, guid: 6668f5ec3392927438c2bcb27ddb5b1f, type: 2}
   emotion: 0
-  text: Thank you, dear!
+  text: Proceed
   condition: {fileID: 0}
   nextNodes:
-  - {fileID: 11400000, guid: 84b4d740eb4ad9644bf55ea4850b503a, type: 2}
-  focusObjectId: Sinta
-  actionOnInteract: {fileID: 0}
+  - {fileID: 0}
+  focusObjectId: 
+  actionOnInteract: {fileID: 11400000, guid: 425dd289f35e2404e86a202f61d9918a, type: 2}

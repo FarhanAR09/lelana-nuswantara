@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 970a3b23d53f3994ba6cdbbe3cc77718, type: 3}
-  m_Name: D-1-0-1
+  m_Script: {fileID: 11500000, guid: ea47a5b838189c645b2de16a9bc7417e, type: 3}
+  m_Name: D-1-2-1
   m_EditorClassIdentifier: 
-  speaker: {fileID: 0}
+  speaker: {fileID: 11400000, guid: 8063a67fb0abfab439f4567da02a75e8, type: 2}
   emotion: 0
-  text: The plan is in action, Lord Rahwana.
+  text: Oh no! It's running away! I have to shoot it with arrow (Right Click)
   condition: {fileID: 0}
-  nextNodes:
-  - {fileID: 0}
-  focusObjectId: 
-  actionOnInteract: {fileID: 11400000, guid: cc878580bfc6cfb42892709ed1299bff, type: 2}
+  nextNodes: []
+  focusObjectId: Rama
+  actionOnInteract: {fileID: 0}

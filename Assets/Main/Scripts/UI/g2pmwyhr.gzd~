@@ -32,7 +32,6 @@ public class DialogueView : Singleton<DialogueView>
     [SerializeField] Button declineQuestButton;
 
     DialogueNodeSO node;
-    float originalTimeScale = 1f;
 
     private void OnEnable()
     {
@@ -68,10 +67,8 @@ public class DialogueView : Singleton<DialogueView>
         // Dialogue Finished
         if (newNode == null)
         {
-            Time.timeScale = originalTimeScale;
-            dialogueCamera.Priority = originalCameraPriority;
-
             dialoguePanel.SetActive(false);
+            dialogueCamera.Priority = originalCameraPriority;
             OnDialogueEnd.Invoke();
             return;
         }
@@ -81,16 +78,9 @@ public class DialogueView : Singleton<DialogueView>
         UpdateDisplay(node);
     }
 
-    public void StartDialogue(DialogueSO dialogueSO)
+    public void StartDialogue(DialogueSO dialogueSO, DialogueViewSettings settings = null)
     {
-        if (dialogueSO.dialogueViewSettingsOverride != null)
-        {
-            overrideSettings = dialogueSO.dialogueViewSettingsOverride;
-        }
-        else
-        {
-            overrideSettings = null;
-        }
+        overrideSettings = settings;
 
         if (IsOpen)
         {
@@ -110,10 +100,6 @@ public class DialogueView : Singleton<DialogueView>
 
         originalCameraPriority = dialogueCamera.Priority;
         dialogueCamera.Priority = CurrentSettings.activeCameraPriority;
-        dialogueCamera.m_Lens.FieldOfView = CurrentSettings.cameraFov;
-        
-        originalTimeScale = Time.timeScale;
-        Time.timeScale = CurrentSettings.timeScale;
 
         OnDialogueStart.Invoke();
     }
@@ -174,5 +160,4 @@ public class DialogueViewSettings : ScriptableObject
 {
     public int activeCameraPriority = 10;
     public int cameraFov = 15;
-    public float timeScale = 1f;
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [DefaultExecutionOrder(9999)]
-public class DialogueStarter : MonoBehaviour
+public class DialogueOnStart : MonoBehaviour
 {
     [SerializeField] DialogueSO dialogue;
 
