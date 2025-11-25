@@ -27,34 +27,18 @@ public class QuestDN : DialogueNodeSO
 
     public DialogueNodeSO GetAcceptNode()
     {
-        if (acceptNodes.Count > 0)
+        if (acceptNodes != null)
         {
-            foreach (DialogueNodeSO node in acceptNodes)
-            {
-                if (node == null)
-                    continue;
-                if (node.EligibleForTransition())
-                {
-                    return node;
-                }
-            }
+            return acceptNodes.GetPrioritizedNode();
         }
         return null;
     }
 
     public DialogueNodeSO GetDeclineNode()
     {
-        if (declineNodes.Count > 0)
+        if (declineNodes != null)
         {
-            foreach (DialogueNodeSO node in declineNodes)
-            {
-                if (node == null)
-                    continue;
-                if (node.EligibleForTransition())
-                {
-                    return node;
-                }
-            }
+            return declineNodes.GetPrioritizedNode();
         }
         return null;
     }

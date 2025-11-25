@@ -9,6 +9,6 @@ public class QuestCompletedDC : DialogueNodeCondition
 
     public override bool IsMet()
     {
-        return QuestSystem.Instance.ReadyToTurnInQuests.Contains(trackedQuest);
+        return QuestSystem.Instance.CompletedQuests.Contains(trackedQuest);
     }
 }

@@ -25,9 +25,10 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.isTrigger &&
-            LayerUtils.IsInLayerMask(collision.gameObject.layer, hittableLayers) &&
-            collision.gameObject.TryGetComponent(out IHittable hittable))
+        if (!LayerUtils.IsInLayerMask(collision.gameObject.layer, hittableLayers))
+            return;
+
+        if (collision.gameObject.TryGetComponent(out IHittable hittable))
         {
             hittable.Hit(1f);
             Destroy(gameObject);

@@ -48,6 +48,7 @@ public class QuestSO : ScriptableObject
 
     public void GiveReward()
     {
+        if (rewardAction == null) return;
         rewardAction.Invoke(null);
     }
 }

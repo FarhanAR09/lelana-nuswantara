@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Combat/Weapon Actions", fileName = "Fire")]
+[CreateAssetMenu(menuName = "Combat/Weapon Actions/Fire", fileName = "Fire")]
 public class FireWA : WeaponAction
 {
     public WeaponAction actionAfterFire;

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b64c629196f23341bd5095d383fad04, type: 3}
+  m_Name: SpearLunge
+  m_EditorClassIdentifier: 
+  actionAfterFire: {fileID: 11400000, guid: 48da04fa4078766408745e8f32786119, type: 2}
+  charged: 0
+  chargeContextKey: 
+  duration: 0.5
+  projectilePrefab: {fileID: 5380326229960971248, guid: 519023f58d5142b43bbf8ed9d68d71c4, type: 3}
+  projectileSpeed: 0

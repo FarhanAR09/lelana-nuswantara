@@ -8,6 +8,7 @@ public abstract class DialogueNodeSO : ScriptableObject
     public DialogueEmotion emotion = DialogueEmotion.Neutral;
     public string text;
     public DialogueNodeCondition condition;
+    public int priority = 0;
     public List<DialogueNodeSO> nextNodes = new();
     public virtual List<DialogueNodeSO> NextNodes
     {
@@ -19,19 +20,7 @@ public abstract class DialogueNodeSO : ScriptableObject
 
     public virtual DialogueNodeSO GetNextNode()
     {
-        if (NextNodes.Count > 0)
-        {
-            foreach (DialogueNodeSO node in NextNodes)
-            {
-                if (node == null)
-                    continue;
-                if (node.EligibleForTransition())
-                {
-                    return node;
-                }
-            }
-        }
-        return null;
+        return NextNodes.GetPrioritizedNode();
     }
 
     public bool EligibleForTransition()

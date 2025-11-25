@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 970a3b23d53f3994ba6cdbbe3cc77718, type: 3}
+  m_Name: D-2-1-7
+  m_EditorClassIdentifier: 
+  speaker: {fileID: 11400000, guid: 8063a67fb0abfab439f4567da02a75e8, type: 2}
+  emotion: 0
+  text: Stay with me Jathayu. I'll protect you.
+  condition: {fileID: 0}
+  priority: 0
+  nextNodes: []
+  focusObjectId: Rama
+  actionsOnInteract:
+  - {fileID: 11400000, guid: 203097f09157af8468af5790b7e9eae8, type: 2}

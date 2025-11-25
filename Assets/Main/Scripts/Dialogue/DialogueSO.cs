@@ -23,24 +23,7 @@ public class DialogueSO : ScriptableObject
 
     public DialogueNodeSO GetInitialNode()
     {
-        List<DialogueNodeSO> eligibleNodesWithConditions = new();
-        List<DialogueNodeSO> eligibleNodesWithoutConditions = new();
-        foreach(var node in initialNodes)
-        {
-            if (node.EligibleForTransition())
-            {
-                if (node.condition == null)
-                    eligibleNodesWithoutConditions.Add(node);
-                else
-                    eligibleNodesWithConditions.Add(node);
-            }
-        }
-        //Prioritize nodes with condition
-        if (eligibleNodesWithConditions.Count > 0)
-            return eligibleNodesWithConditions[0];
-        if (eligibleNodesWithoutConditions.Count > 0)
-            return eligibleNodesWithoutConditions[0];
-        return null;
+        return initialNodes.GetPrioritizedNode();
     }
 
     private bool ContainsAvailableQuestNode(DialogueNodeSO node)
