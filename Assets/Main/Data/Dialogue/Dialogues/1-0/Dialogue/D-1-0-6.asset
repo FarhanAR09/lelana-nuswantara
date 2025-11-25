@@ -19,4 +19,5 @@ MonoBehaviour:
   nextNodes:
   - {fileID: 0}
   focusObjectId: 
-  actionOnInteract: {fileID: 11400000, guid: 425dd289f35e2404e86a202f61d9918a, type: 2}
+  actionsOnInteract:
+  - {fileID: 11400000, guid: 425dd289f35e2404e86a202f61d9918a, type: 2}

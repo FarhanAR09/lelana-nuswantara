@@ -18,4 +18,7 @@ MonoBehaviour:
   condition: {fileID: 0}
   nextNodes: []
   focusObjectId: Rama
-  actionOnInteract: {fileID: 0}
+  actionsOnInteract:
+  - {fileID: 11400000, guid: 7c1dfce60ca39bc47aa6020d907e335d, type: 2}
+  - {fileID: 11400000, guid: d8603b725b065b34f80822642dd5e5ac, type: 2}
+  - {fileID: 11400000, guid: 082a44a39cbe9064dafd9402049b48a1, type: 2}

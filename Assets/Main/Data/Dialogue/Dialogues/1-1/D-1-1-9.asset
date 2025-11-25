@@ -19,4 +19,5 @@ MonoBehaviour:
   nextNodes:
   - {fileID: 11400000, guid: c45f4290af779884aa92ebccac0e9c7b, type: 2}
   focusObjectId: Sinta
-  actionOnInteract: {fileID: 11400000, guid: 7dc951049a8e952448942628bdaa4027, type: 2}
+  actionsOnInteract:
+  - {fileID: 11400000, guid: 7dc951049a8e952448942628bdaa4027, type: 2}

@@ -15,7 +15,7 @@ public abstract class DialogueNodeSO : ScriptableObject
         protected set { nextNodes = value; }
     }
     public string focusObjectId;
-    public ActionSO actionOnInteract;
+    public List<ActionSO> actionsOnInteract = new();
 
     public virtual DialogueNodeSO GetNextNode()
     {
@@ -37,5 +37,12 @@ public abstract class DialogueNodeSO : ScriptableObject
     public bool EligibleForTransition()
     {
         return condition == null || condition.IsMet();
+    }
+
+    public void InvokeActionsOnInteract()
+    {
+        if (actionsOnInteract != null)
+            foreach (ActionSO action in actionsOnInteract)
+                action.Invoke(null);
     }
 }

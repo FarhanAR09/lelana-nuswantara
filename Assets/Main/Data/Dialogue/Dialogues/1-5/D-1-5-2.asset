@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea47a5b838189c645b2de16a9bc7417e, type: 3}
-  m_Name: D-1-3-1
+  m_Name: D-1-5-2
   m_EditorClassIdentifier: 
   speaker: {fileID: 11400000, guid: 8063a67fb0abfab439f4567da02a75e8, type: 2}
   emotion: 0
-  text: Huh? It just disappeared.
+  text: You're making me worried.
   condition: {fileID: 0}
   nextNodes:
-  - {fileID: 11400000, guid: 4cf42e269ae92f7409b2121de68b2fe0, type: 2}
+  - {fileID: 11400000, guid: ebe475a0982538840a04540bbb4be600, type: 2}
   focusObjectId: Rama
-  actionsOnInteract: []
+  actionsOnInteract:
+  - {fileID: 11400000, guid: b628bb4f858b8c544a38a8c9d355a4c7, type: 2}

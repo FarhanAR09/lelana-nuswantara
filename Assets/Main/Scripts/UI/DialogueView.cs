@@ -145,10 +145,7 @@ public class DialogueView : Singleton<DialogueView>
             }
         }
 
-        if (node.actionOnInteract != null)
-        {
-            node.actionOnInteract.Invoke(null);
-        }
+        node.InvokeActionsOnInteract();
     }
 
     private bool questAccepted = false;
