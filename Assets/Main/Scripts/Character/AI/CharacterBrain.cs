@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(GameObjectContextContainer))]
+[RequireComponent(typeof(CoroutineRunner))]
 [DefaultExecutionOrder(-2147483648)]
 public class CharacterBrain : MonoBehaviour
 {
@@ -14,10 +15,12 @@ public class CharacterBrain : MonoBehaviour
         get => contextContainer.context;
         private set => contextContainer.context = value;
     }
+    public CoroutineRunner CoroutineRunner { get; private set; }
 
     private void Awake()
     {
         contextContainer = GetComponent<GameObjectContextContainer>();
+        CoroutineRunner = GetComponent<CoroutineRunner>();
         GetComponents(states);
 
         if (activeState != null)

@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerProximityDetector : MonoBehaviour
 {
+    public string id = "";
     public bool PlayerDetected { get; private set; } = false;
     public PlayerController DetectedPlayer { get; private set; }
     public CollisionEventHolder collisionEventHolder;

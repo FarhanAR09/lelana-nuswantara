@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b2f79865ba1f08d46996d58dccd3b7c6, type: 3}
-  m_Name: Player Detected with Context Key
+  m_Name: Close Player Detected with Context Key
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
+  detectorId: CloseDetector
   <ContextKey>k__BackingField: DetectedPlayerProximity
+  <Type>k__BackingField: 0

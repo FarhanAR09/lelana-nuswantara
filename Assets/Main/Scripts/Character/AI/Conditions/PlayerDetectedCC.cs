@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerDetectedCC : CharacterStateTransitionCondition
 {
     private PlayerProximityDetector detector;
+    public string detectorId = null;
 
     [field: SerializeField]
     public string ContextKey { get; private set; } = "DetectedPlayerProximity";
@@ -40,7 +41,23 @@ public class PlayerDetectedCC : CharacterStateTransitionCondition
 
     public override void OnEnter()
     {
-        detector = owner.GetComponent<PlayerProximityDetector>();
+        //detector = owner.GetComponent<PlayerProximityDetector>();
+        if (detectorId.IsNotNullOrEmpty())
+        {
+            PlayerProximityDetector[] detectors = owner.GetComponents<PlayerProximityDetector>();
+            foreach (var det in detectors)
+            {
+                if (det.id == detectorId)
+                {
+                    detector = det;
+                }
+            }
+        }
+        else //Default to first detector component
+        {
+            detector = owner.GetComponent<PlayerProximityDetector>();
+        }
+
         if (detector == null)
         {
             Debug.LogError("PlayerDetectedCC requires a PlayerProximityDetector component");

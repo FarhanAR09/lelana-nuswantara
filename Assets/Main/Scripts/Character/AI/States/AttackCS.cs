@@ -8,6 +8,7 @@ public class AttackCS : CharacterState
     private Coroutine attackCoroutine;
     public float stateDuration = 1f;
     public CharacterState nextState;
+    public string attackCoroutineKey;
 
     protected override void Update()
     {
@@ -21,16 +22,21 @@ public class AttackCS : CharacterState
 
         if (attackCoroutine != null)
             StopCoroutine(attackCoroutine);
-        attackCoroutine = StartCoroutine(Attack());
+        attackCoroutine = StartCoroutine(MoveState());
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
         combatManager.WeaponContext.fireDown = false;
+
+        if (attackCoroutine != null)
+        {
+            StopCoroutine(attackCoroutine);
+        }
     }
 
-    IEnumerator Attack()
+    IEnumerator MoveState()
     {
         yield return new WaitForSeconds(stateDuration);
         brain.ChangeState(nextState);
