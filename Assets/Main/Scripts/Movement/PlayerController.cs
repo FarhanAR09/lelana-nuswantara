@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         weapon1 = Instantiate(weapon1Data);
         weapon2 = Instantiate(weapon2Data);
 
-        combatManager.SetActiveWeaponInstance(
+        combatManager.SetActiveWeapon(
                 combatManager.activeWeapon == weapon1 ? weapon2 : weapon1);
     }
 
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                combatManager.SetActiveWeaponInstance(
+                combatManager.SetActiveWeapon(
                     combatManager.activeWeapon == weapon1 ? weapon2 : weapon1);
             }
         }

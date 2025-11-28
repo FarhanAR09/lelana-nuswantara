@@ -1,11 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "Weapon", menuName = "Combat/Weapon")]
 public class WeaponSO : ScriptableObject
 {
     public List<WeaponSequence> sequences;
+
+    public UnityAction<WeaponAction> onWeaponActionChanged;
 
     public void Initialize(WeaponContext context)
     {
@@ -17,6 +19,7 @@ public class WeaponSO : ScriptableObject
         foreach (var sequence in sequences)
         {
             sequence.Initialize(context);
+            sequence.onWeaponActionChanged += SendWeaponActionChangedEvent;
         }
     }
 
@@ -40,5 +43,10 @@ public class WeaponSO : ScriptableObject
         {
             sequence.PhysicsUpdate();
         }
+    }
+
+    private void SendWeaponActionChangedEvent(WeaponAction weaponAction)
+    {
+        onWeaponActionChanged?.Invoke(weaponAction);
     }
 }

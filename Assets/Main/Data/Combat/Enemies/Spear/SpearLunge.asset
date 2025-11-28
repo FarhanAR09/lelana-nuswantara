@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b64c629196f23341bd5095d383fad04, type: 3}
   m_Name: SpearLunge
   m_EditorClassIdentifier: 
-  actionAfterFire: {fileID: 11400000, guid: 48da04fa4078766408745e8f32786119, type: 2}
+  actionAfterFire: {fileID: 11400000, guid: 84d962e87ceb29940bbdb9a8bf4f3920, type: 2}
   charged: 0
   chargeContextKey: 
   duration: 0.5

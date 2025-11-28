@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "Combat/Weapon Sequence")]
 public class WeaponSequence : ScriptableObject
@@ -8,6 +9,8 @@ public class WeaponSequence : ScriptableObject
     public WeaponAction initialAction;
     public WeaponAction activeAction;
     private WeaponContext context;
+
+    public UnityAction<WeaponAction> onWeaponActionChanged;
 
     public void ChangeAction(WeaponAction newActionData)
     {
@@ -21,6 +24,8 @@ public class WeaponSequence : ScriptableObject
         activeAction = Instantiate(newActionData);
         activeAction.Initialize(this, context);
         activeAction.OnEnter();
+
+        onWeaponActionChanged?.Invoke(activeAction);
     }
 
     public void Update()

@@ -3,25 +3,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "WaitSeconds", menuName = "Combat/Weapon Actions/Wait Seconds")]
 public class WaitSecondsWA : WeaponAction
 {
+    [Tooltip("Key for CoroutineRunner in CombatManager (Weapon User GameObject Specific)")]
+    public string coroutineKey = "WaitSeconds";
+    public float duration = 1f;
+    public WeaponAction nextAction;
+
     public override void OnEnter()
     {
-        context.combatManager.Run
+        context.combatManager.CoroutineRunner.StartSingleCoroutine(coroutineKey, WaitSeconds());
     }
 
     public override void OnExit()
     {
-        throw new System.NotImplementedException();
+        context.combatManager.CoroutineRunner.StopSingleCoroutine(coroutineKey);
     }
 
     public override void OnPhysicsUpdate()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void OnUpdate()
     {
-        throw new System.NotImplementedException();
+        
+    }
+
+    private IEnumerator WaitSeconds()
+    {
+        yield return new WaitForSeconds(duration);
+        currentSequence.ChangeAction(nextAction);
     }
 }

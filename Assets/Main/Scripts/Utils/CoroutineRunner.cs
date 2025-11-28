@@ -16,4 +16,12 @@ public class CoroutineRunner : MonoBehaviour
         RunningCoroutines[key] = coroutine;
         return coroutine;
     }
+
+    public void StopSingleCoroutine(string key)
+    {
+        if (RunningCoroutines.ContainsKey(key) && RunningCoroutines[key] != null)
+        {
+            StopCoroutine(RunningCoroutines[key]);
+        }
+    }
 }

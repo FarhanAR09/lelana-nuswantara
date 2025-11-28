@@ -5,6 +5,8 @@ public abstract class WeaponAction : ScriptableObject
     protected WeaponSequence currentSequence;
     protected WeaponContext context;
 
+    public string id;
+    
     public abstract void OnEnter();
     public abstract void OnUpdate();
     public abstract void OnPhysicsUpdate();
