@@ -8,6 +8,9 @@ public class MovementTransition
     public string name;
     public MovementState targetState;
 
+    /// <summary>
+    /// OR condition operations
+    /// </summary>
     public List<MovementTransitionCondition> conditions;
 
     public void ResetConditions(MovementBrain owner)

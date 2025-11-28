@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66bed18e290f0b64ca2f015159ea792b, type: 3}
   m_Name: SpearMeleeInput
   m_EditorClassIdentifier: 
-  nextAction: {fileID: 11400000, guid: 3fba8457e508d234398882db124935d2, type: 2}
+  id: 
+  nextAction: {fileID: 11400000, guid: 24efa6fd42ba8a54e85accd54f96cff0, type: 2}
   inputType: 1

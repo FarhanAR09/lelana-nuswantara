@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Movement/Condition", fileName = "Knockbacked")]
+[CreateAssetMenu(menuName = "Movement/Conditions/Knockbacked", fileName = "Knockbacked")]
 public class KnockbackedMTC : MovementTransitionCondition
 {
     private KnockbackableExtension knockbackableExtension;

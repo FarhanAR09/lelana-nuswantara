@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e91c1d056ac0304fbd2aa84ca9ab25f, type: 3}
-  m_Name: TelegraphWaitSeconds
+  m_Script: {fileID: 11500000, guid: 360a1c702380d9041a9f2f33242d7576, type: 3}
+  m_Name: Jump Pressed and Grounded
   m_EditorClassIdentifier: 
-  id: 
-  coroutineKey: SpearAttackWaitSeconds
-  duration: 0.5
-  nextAction: {fileID: 11400000, guid: 3fba8457e508d234398882db124935d2, type: 2}
+  owner: {fileID: 0}
+  conditions:
+  - {fileID: 11400000, guid: 2a73528d94813114cb1f2ff419f6dbab, type: 2}
+  - {fileID: 11400000, guid: dbdbc9ad75d1fb84896cc9b5ffde2919, type: 2}

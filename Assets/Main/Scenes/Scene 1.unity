@@ -9448,7 +9448,7 @@ MonoBehaviour:
   - name: 
     targetState: {fileID: 1607026857}
     conditions:
-    - {fileID: 11400000, guid: 2a73528d94813114cb1f2ff419f6dbab, type: 2}
+    - {fileID: 11400000, guid: d97c56708d0458d408726e979c6887f0, type: 2}
   speed: 6
   gravityScale: 7
 --- !u!114 &1607026853
