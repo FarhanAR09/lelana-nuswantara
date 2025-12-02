@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(GameObjectContextContainer))]
 [RequireComponent(typeof(CoroutineRunner))]
@@ -44,4 +45,18 @@ public class CharacterBrain : MonoBehaviour
         activeState = newState;
         newState.enabled = true;
     }
+
+    public void Set<T>(string key, T value)
+    {
+        Context[key] = value;
+    }
+
+    public T Get<T>(string key, T defaultValue = default)
+    {
+        if (Context.TryGetValue(key, out var value) && value is T tValue)
+            return tValue;
+        return defaultValue;
+    }
+
+    public bool Has(string key) => Context.ContainsKey(key);
 }

@@ -165,3 +165,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   damage: 1
+  knockbackDurationSec: 0.7
+  destroyTime: 1

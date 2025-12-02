@@ -13,15 +13,21 @@ public class CharacterStateTransition
 
     public void ResetConditions(CharacterBrain owner)
     {
-        for (int i = 0; i < conditions.Count; i++)
+        if (conditions.Count > 0)
         {
-            conditions[i] = ScriptableObject.Instantiate(conditions[i]);
-            conditions[i].owner = owner;
+            for (int i = 0; i < conditions.Count; i++)
+            {
+                conditions[i] = ScriptableObject.Instantiate(conditions[i]);
+                conditions[i].owner = owner;
+            }
         }
     }
 
     public bool CanTransition(CharacterBrain brain)
     {
+        if (conditions == null || conditions.Count == 0)
+            return true;
+
         foreach (var condition in conditions)
         {
             if (condition.IsMet(brain))
@@ -30,19 +36,19 @@ public class CharacterStateTransition
         return false;
     }
 
-    public void InvokeConditionsOnEnter()
+    public void InvokeConditionsOnEnter(CharacterBrain brain)
     {
         foreach (var condition in conditions)
         {
-            condition.OnEnter();
+            condition.OnEnter(brain);
         }
     }
 
-    public void InvokeConditionsOnExit()
+    public void InvokeConditionsOnExit(CharacterBrain brain)
     {
         foreach (var condition in conditions)
         {
-            condition.OnExit();
+            condition.OnExit(brain);
         }
     }
 }

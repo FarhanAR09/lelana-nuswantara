@@ -16,10 +16,29 @@ public class CombatManager : MonoBehaviour
 
     public UnityAction<WeaponSO> onWeaponChanged;
 
+    private IHittable[] hittables;
+
+    private void OnEnable()
+    {
+        foreach (var hittable in hittables)
+        {
+            hittable.OnHit += WeaponContext.CancelAttack;
+        }
+    }
+
+    private void OnDisable()
+    {
+        foreach (var hittable in hittables)
+        {
+            hittable.OnHit -= WeaponContext.CancelAttack;
+        }
+    }
+
     private void Awake()
     {
         WeaponContext.combatManager = this;
         CoroutineRunner = GetComponent<CoroutineRunner>();
+        hittables = GetComponents<IHittable>();
     }
 
     private void Start()

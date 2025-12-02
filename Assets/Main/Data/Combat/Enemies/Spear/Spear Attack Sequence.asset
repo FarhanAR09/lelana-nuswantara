@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialAction: {fileID: 11400000, guid: 48da04fa4078766408745e8f32786119, type: 2}
   activeAction: {fileID: 0}
+  cancelWeaponAction: {fileID: 11400000, guid: 48da04fa4078766408745e8f32786119, type: 2}

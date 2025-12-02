@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterBrain))]
 public class CharacterState : MonoBehaviour
 {
+    public string id;
     protected CharacterBrain brain;
 
     public List<CharacterStateTransition> transitions;
@@ -14,7 +15,7 @@ public class CharacterState : MonoBehaviour
     {
         foreach (var transition in transitions)
         {
-            transition.InvokeConditionsOnEnter();
+            transition.InvokeConditionsOnEnter(brain);
         }
     }
 
@@ -22,7 +23,7 @@ public class CharacterState : MonoBehaviour
     {
         foreach (var transition in transitions)
         {
-            transition.InvokeConditionsOnExit();
+            transition.InvokeConditionsOnExit(brain);
         }
     }
 

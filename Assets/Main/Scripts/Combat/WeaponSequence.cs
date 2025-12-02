@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,6 +9,10 @@ public class WeaponSequence : ScriptableObject
 {
     public WeaponAction initialAction;
     public WeaponAction activeAction;
+    /// <summary>
+    /// Leave null if you don't want to cancel
+    /// </summary>
+    public WeaponAction cancelWeaponAction;
     private WeaponContext context;
 
     public UnityAction<WeaponAction> onWeaponActionChanged;
@@ -42,6 +47,9 @@ public class WeaponSequence : ScriptableObject
 
     public void Initialize(WeaponContext context)
     {
+        if (this.context != null)
+            this.context.onAttackCancelled -= CancelAttack;
+
         this.context = context;
         var instantiating = activeAction != null ? activeAction : initialAction != null ? initialAction : null;
         if (instantiating != null)
@@ -49,10 +57,20 @@ public class WeaponSequence : ScriptableObject
             activeAction = Instantiate(instantiating);
             activeAction.Initialize(this, context);
         }
+
+        this.context.onAttackCancelled += CancelAttack;
     }
 
     public void ResetSequence()
     {
         ChangeAction(initialAction);
+    }
+
+    private void CancelAttack()
+    {
+        if (cancelWeaponAction != null)
+        {
+            ChangeAction(cancelWeaponAction);
+        }
     }
 }

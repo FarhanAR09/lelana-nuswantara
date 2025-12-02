@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IHittable
 {
+    [SerializeField]
+    private Health health;
     [SerializeField]
     private MovementBrain brain;
     [SerializeField]
@@ -16,16 +19,22 @@ public class PlayerController : MonoBehaviour
 
     private bool inputEnabled = true;
 
+    public UnityAction OnHit { get; set; }
+
     private void OnEnable()
     {
         DialogueView.Instance.OnDialogueStart.AddListener(DisableInput);
         DialogueView.Instance.OnDialogueEnd.AddListener(EnableInput);
+
+        health.onDie += DisableInput;
     }
 
     private void OnDisable()
     {
         DialogueView.Instance.OnDialogueStart.RemoveListener(DisableInput);
         DialogueView.Instance.OnDialogueEnd.RemoveListener(EnableInput);
+
+        health.onDie -= DisableInput;
     }
 
     private void Awake()
@@ -106,5 +115,17 @@ public class PlayerController : MonoBehaviour
     private void DisableInput()
     {
         inputEnabled = false;
+    }
+
+    public HitResult Hit(float damage)
+    {
+        health.TakeDamage(damage);
+        OnHit?.Invoke();
+        return new HitResult();
+    }
+
+    private void StartDeathSequence()
+    {
+        
     }
 }

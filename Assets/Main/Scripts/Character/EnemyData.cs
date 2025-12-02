@@ -8,6 +8,8 @@ public class EnemyData : MonoBehaviour, IHittable
     public string id;
     public Health health;
 
+    public UnityAction OnHit { get; set; }
+
     private void OnEnable()
     {
         health.onDie += Kill;
@@ -21,6 +23,7 @@ public class EnemyData : MonoBehaviour, IHittable
     public HitResult Hit(float damage)
     {
         health.TakeDamage(damage);
+        OnHit?.Invoke();
         return new HitResult();
     }
 

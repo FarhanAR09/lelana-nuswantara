@@ -22,6 +22,7 @@ public class CoroutineRunner : MonoBehaviour
         if (RunningCoroutines.ContainsKey(key) && RunningCoroutines[key] != null)
         {
             StopCoroutine(RunningCoroutines[key]);
+            RunningCoroutines.Remove(key);
         }
     }
 }

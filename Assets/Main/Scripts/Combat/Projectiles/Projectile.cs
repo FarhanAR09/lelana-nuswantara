@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
 
     public LayerMask hittableLayers;
     public float damage = 1f;
+    public float knockbackDurationSec = 0.5f;
     public float destroyTime = 1f;
 
     private void Awake()
@@ -38,7 +39,7 @@ public class Projectile : MonoBehaviour
         {
             Vector2 velocity = collision.transform.position - weaponContext.combatManager.transform.position;
             velocity.y = 10f;
-            knockbackable.Knockback(velocity);
+            knockbackable.Knockback(velocity, knockbackDurationSec);
         }
     }
 

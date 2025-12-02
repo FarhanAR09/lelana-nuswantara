@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Player Detected", menuName = "Character/Conditions")]
+[CreateAssetMenu(fileName = "Player Detected", menuName = "Character/Conditions/Player Detected")]
 public class PlayerDetectedCC : CharacterStateTransitionCondition
 {
     private PlayerProximityDetector detector;
@@ -39,7 +39,7 @@ public class PlayerDetectedCC : CharacterStateTransitionCondition
         return false;
     }
 
-    public override void OnEnter()
+    public override void OnEnter(CharacterBrain brain)
     {
         //detector = owner.GetComponent<PlayerProximityDetector>();
         if (detectorId.IsNotNullOrEmpty())
@@ -64,7 +64,7 @@ public class PlayerDetectedCC : CharacterStateTransitionCondition
         }
     }
 
-    public override void OnExit()
+    public override void OnExit(CharacterBrain brain)
     {
         
     }

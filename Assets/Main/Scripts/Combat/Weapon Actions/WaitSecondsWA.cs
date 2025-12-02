@@ -13,6 +13,7 @@ public class WaitSecondsWA : WeaponAction
 
     public override void OnEnter()
     {
+        context.combatManager.CoroutineRunner.StopSingleCoroutine(coroutineKey);
         context.combatManager.CoroutineRunner.StartSingleCoroutine(coroutineKey, WaitSeconds());
     }
 
@@ -33,7 +34,11 @@ public class WaitSecondsWA : WeaponAction
 
     private IEnumerator WaitSeconds()
     {
-        yield return new WaitForSeconds(duration);
+        float start = Time.time;
+        while (Time.time - start < duration)
+        {
+            yield return null;
+        }
         currentSequence.ChangeAction(nextAction);
     }
 }
