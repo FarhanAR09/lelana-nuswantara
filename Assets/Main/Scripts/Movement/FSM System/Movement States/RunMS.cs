@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class RunMS : MovementState
+public class RunMS : MovementState, IVelocityProvider
 {
     public float speed;
     public float gravityScale;
 
     private float initialGravity;
+
+    public Vector3 Velocity
+    {
+        get; private set;
+    } = Vector3.zero;
 
     protected override void Awake()
     {
@@ -39,6 +44,7 @@ public class RunMS : MovementState
         {
             move.y = cc.rb.velocity.y;
         }
+        Velocity = move;
         cc.SetVelocity(move);
     }
 }

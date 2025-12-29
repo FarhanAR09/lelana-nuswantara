@@ -16,6 +16,8 @@ MonoBehaviour:
   emotion: 0
   text: Alengka will be in ruins!
   condition: {fileID: 0}
+  priority: 0
   nextNodes: []
   focusObjectId: Rama
-  actionsOnInteract: []
+  actionsOnInteract:
+  - {fileID: 11400000, guid: 0f62f0fe14d61334788ef7c52e68185c, type: 2}

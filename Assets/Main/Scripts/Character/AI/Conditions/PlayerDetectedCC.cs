@@ -17,7 +17,7 @@ public class PlayerDetectedCC : CharacterStateTransitionCondition
     {
         if (detector == null)
         {
-            Debug.LogError("PlayerDetectedCC requires a PlayerProximityDetector component");
+            Debug.LogError("PlayerDetectedCC requires a PlayerProximityDetector component or doesn't match any");
             return false;
         }
         if (Type == DetectionType.PlayerBecomesDetected)

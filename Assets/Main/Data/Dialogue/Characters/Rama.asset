@@ -13,5 +13,13 @@ MonoBehaviour:
   m_Name: Rama
   m_EditorClassIdentifier: 
   characterName: Rama
-  defaultPortrait: {fileID: 21300000, guid: 2505a5179eaab2944b87a54f1d656bea, type: 3}
-  emotionsPortrait: []
+  defaultPortrait: {fileID: 343944117, guid: a117688d4668e1d43a14d13c1d0ffea3, type: 3}
+  emotionsPortrait:
+  - emotion: 0
+    portrait: {fileID: 343944117, guid: a117688d4668e1d43a14d13c1d0ffea3, type: 3}
+  - emotion: 1
+    portrait: {fileID: 1279595543, guid: a117688d4668e1d43a14d13c1d0ffea3, type: 3}
+  - emotion: 2
+    portrait: {fileID: 1103315481, guid: a117688d4668e1d43a14d13c1d0ffea3, type: 3}
+  - emotion: 3
+    portrait: {fileID: -2045976744, guid: a117688d4668e1d43a14d13c1d0ffea3, type: 3}

@@ -8,11 +8,15 @@ public class Projectile : MonoBehaviour
 {
     private Rigidbody2D rb;
     private WeaponContext weaponContext;
+    [Tooltip("Will be moved to world hierarchy from child")]
+    public GameObject visualObject;
 
     public LayerMask hittableLayers;
     public float damage = 1f;
     public float knockbackDurationSec = 0.5f;
     public float destroyTime = 1f;
+
+    public bool instantiateVisualObjectOnWorld = true;
 
     private void Awake()
     {
@@ -43,9 +47,19 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void Launch(Vector2 velocity, WeaponContext weaponContext)
+    public void Launch(ProjectileLaunchArgs launchArgs, WeaponContext weaponContext)
     {
-        rb.velocity = velocity;
+        rb.velocity = launchArgs.velocity;
+        transform.rotation = launchArgs.rotation;
+        visualObject.transform.parent = instantiateVisualObjectOnWorld ? transform.parent : transform;
+        visualObject.transform.rotation = transform.rotation;
+        Destroy(visualObject, destroyTime);
         this.weaponContext = weaponContext;
     }
+}
+
+public class ProjectileLaunchArgs
+{
+    public Vector2 velocity;
+    public Quaternion rotation;
 }

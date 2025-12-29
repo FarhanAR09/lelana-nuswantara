@@ -12,6 +12,7 @@ public class MovementState : MonoBehaviour
     protected MovementBrain brain;
     
     public List<MovementTransition> transitions;
+    public UnityAction onEnter, onExit;
 
     protected virtual void OnEnable()
     {
@@ -19,6 +20,7 @@ public class MovementState : MonoBehaviour
         {
             transition.InvokeConditionsOnEnter();
         }
+        onEnter?.Invoke();
     }
 
     protected virtual void OnDisable()
@@ -27,6 +29,7 @@ public class MovementState : MonoBehaviour
         {
             transition.InvokeConditionsOnExit();
         }
+        onExit?.Invoke();
     }
 
     protected virtual void Awake()

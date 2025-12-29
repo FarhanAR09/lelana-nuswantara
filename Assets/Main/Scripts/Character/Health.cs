@@ -6,12 +6,13 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     public float health = 100f;
+    public float maxHealth;
     public UnityAction<float> onHealthChanged;
     public UnityAction onDie;
 
     public void Heal(float amount)
     {
-        health += amount;
+        health = Mathf.Clamp(health + amount, 0, maxHealth);
         onHealthChanged?.Invoke(health);
     }
 

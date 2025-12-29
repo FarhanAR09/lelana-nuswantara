@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Alengka Soldier
   m_EditorClassIdentifier: 
   characterName: Alengka Soldier
-  defaultPortrait: {fileID: 21300000, guid: 2505a5179eaab2944b87a54f1d656bea, type: 3}
+  defaultPortrait: {fileID: 1520879818, guid: e5534f3c2050740408036af8d0dea0e7, type: 3}
   emotionsPortrait: []

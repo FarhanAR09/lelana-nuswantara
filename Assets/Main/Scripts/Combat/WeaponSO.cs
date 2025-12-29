@@ -5,9 +5,11 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "Weapon", menuName = "Combat/Weapon")]
 public class WeaponSO : ScriptableObject
 {
+    public string weaponId;
     public List<WeaponSequence> sequences;
 
     public UnityAction<WeaponAction> onWeaponActionChanged;
+    public UnityAction<WeaponAction, object> onWeaponActionEventInvoked;
 
     public void Initialize(WeaponContext context)
     {
@@ -18,6 +20,7 @@ public class WeaponSO : ScriptableObject
 
         foreach (var sequence in sequences)
         {
+            sequence.owner = this;
             sequence.Initialize(context);
             sequence.onWeaponActionChanged += SendWeaponActionChangedEvent;
         }

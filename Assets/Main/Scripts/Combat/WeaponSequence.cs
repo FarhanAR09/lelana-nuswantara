@@ -7,6 +7,8 @@ using UnityEngine.Events;
 [CreateAssetMenu(menuName = "Combat/Weapon Sequence")]
 public class WeaponSequence : ScriptableObject
 {
+    [HideInInspector]
+    public WeaponSO owner;
     public WeaponAction initialAction;
     public WeaponAction activeAction;
     /// <summary>
@@ -71,6 +73,14 @@ public class WeaponSequence : ScriptableObject
         if (cancelWeaponAction != null)
         {
             ChangeAction(cancelWeaponAction);
+        }
+    }
+
+    public void InvokeWeaponActionEvent(WeaponAction sender, object arg)
+    {
+        if (owner != null)
+        {
+            owner.onWeaponActionEventInvoked?.Invoke(sender, arg);
         }
     }
 }

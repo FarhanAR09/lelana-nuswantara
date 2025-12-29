@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Sinta
   m_EditorClassIdentifier: 
   characterName: Sinta
-  defaultPortrait: {fileID: 21300000, guid: 2505a5179eaab2944b87a54f1d656bea, type: 3}
-  emotionsPortrait: []
+  defaultPortrait: {fileID: -1349023247, guid: 3fb5604adbfe06e4392e9b45dd5dd5d6, type: 3}
+  emotionsPortrait:
+  - emotion: 1
+    portrait: {fileID: 1022820226, guid: 3fb5604adbfe06e4392e9b45dd5dd5d6, type: 3}

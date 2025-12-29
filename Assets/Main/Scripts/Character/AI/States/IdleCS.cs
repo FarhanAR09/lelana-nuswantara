@@ -9,6 +9,9 @@ public class IdleCS : CharacterState
     protected override void Awake()
     {
         base.Awake();
+
+        if (movementBrain == null)
+            movementBrain = GetComponent<MovementBrain>();
     }
 
     protected override void OnDisable()

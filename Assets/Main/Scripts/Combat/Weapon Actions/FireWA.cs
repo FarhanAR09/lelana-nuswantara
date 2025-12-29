@@ -11,6 +11,8 @@ public class FireWA : WeaponAction
     public float duration = 0.5f;
     public Projectile projectilePrefab;
     public float projectileSpeed;
+    public bool rotateProjectileToTarget;
+    public float rotationOffsetDeg;
 
     private float timer = 0f;
 
@@ -29,7 +31,15 @@ public class FireWA : WeaponAction
         if (projectilePrefab != null)
         {
             var projectile = Instantiate(projectilePrefab, context.combatManager.transform.position, Quaternion.identity);
-            projectile.Launch(projectileSpeed * context.aimDirection, context);
+            projectile.Launch(
+                new ProjectileLaunchArgs()
+                {
+                    velocity = projectileSpeed * context.aimDirection,
+                    rotation = rotateProjectileToTarget ?
+                        Quaternion.Euler(0f, 0f, Mathf.Atan2(context.aimDirection.y, context.aimDirection.x) * Mathf.Rad2Deg + rotationOffsetDeg) :
+                        Quaternion.identity,
+                },
+                context);
         }
     }
 

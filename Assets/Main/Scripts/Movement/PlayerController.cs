@@ -21,6 +21,11 @@ public class PlayerController : MonoBehaviour, IHittable
 
     public UnityAction OnHit { get; set; }
 
+    [Header("Animations")]
+    public Animator animator;
+    public string stopToFastParameter;
+    private int stopToFastHash;
+
     private void OnEnable()
     {
         DialogueView.Instance.OnDialogueStart.AddListener(DisableInput);
@@ -44,6 +49,8 @@ public class PlayerController : MonoBehaviour, IHittable
 
         combatManager.SetActiveWeapon(
                 combatManager.activeWeapon == weapon1 ? weapon2 : weapon1);
+
+        stopToFastHash = Animator.StringToHash(stopToFastParameter);
     }
 
     private void Update()

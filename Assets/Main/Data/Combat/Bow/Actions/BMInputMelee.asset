@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66bed18e290f0b64ca2f015159ea792b, type: 3}
   m_Name: BMInputMelee
   m_EditorClassIdentifier: 
-  nextAction: {fileID: 11400000, guid: 156edaac24bff7a41bd731af5d87ed77, type: 2}
+  id: 
+  nextAction: {fileID: 11400000, guid: 5988cc4c0d545694e8325de8e8a69784, type: 2}
   inputType: 1

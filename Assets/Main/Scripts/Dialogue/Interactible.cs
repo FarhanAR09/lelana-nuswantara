@@ -13,6 +13,8 @@ public class Interactible : MonoBehaviour
     [SerializeField] Canvas interactibleCanvasPrefab;
     private Canvas interactibleCanvas;
     [SerializeField]
+    private Vector3 canvasPosition = new Vector3(0f, 1f, 0f);
+    [SerializeField]
     public string InteractibleId { get; private set; }
 
     private void Awake()
@@ -20,6 +22,7 @@ public class Interactible : MonoBehaviour
         if (interactibleCanvasPrefab != null)
         {
             interactibleCanvas = Instantiate(interactibleCanvasPrefab, transform);
+            interactibleCanvas.GetComponent<RectTransform>().localPosition = canvasPosition;
             Transform foundInteractibleImage = interactibleCanvas.transform.Find("Interactible Icon");
             if (foundInteractibleImage != null && foundInteractibleImage.TryGetComponent<Image>(out Image interactibleImage))
             {
